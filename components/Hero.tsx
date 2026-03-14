@@ -1,12 +1,12 @@
 'use client'
 
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useMemo } from 'react'
 import dynamic from 'next/dynamic'
 import { drinks } from '@/lib/data'
 import { useSelectedDrink } from '@/lib/DrinkContext'
 import styles from './Hero.module.css'
 
-const MonsterCan = dynamic(() => import('./MonsterCan'), { ssr: false })
+const MonsterCan = dynamic(() => import('./MonsterCan'), { ssr: false, loading: () => <div style={{ width: '100%', height: '100%', background: '#0a0a0a' }} /> })
 
 const stats = [
   { label: 'Products Tracked', value: '15' },
@@ -23,7 +23,7 @@ function getBestDeal(drink: typeof drinks[0]) {
 
 export default function Hero() {
   const [tickerIndex, setTickerIndex] = useState(0)
-  const { selectedDrink } = useSelectedDrink()
+  const selectedDrink = useSelectedDrink()
 
   useEffect(() => {
     const id = setInterval(() => {
@@ -32,7 +32,7 @@ export default function Hero() {
     return () => clearInterval(id)
   }, [])
 
-  const tickerDrinks = [...drinks, ...drinks].slice(tickerIndex, tickerIndex + 6)
+  const tickerDrinks = useMemo(() => [...drinks, ...drinks].slice(tickerIndex, tickerIndex + 6), [tickerIndex])
 
   return (
     <section className={styles.hero}>

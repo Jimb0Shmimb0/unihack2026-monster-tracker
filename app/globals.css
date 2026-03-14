@@ -72,6 +72,12 @@ button {
   font-family: inherit;
 }
 
+/* MonsterCan border text animations */
+@keyframes mcBorderRight { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+@keyframes mcBorderLeft  { from { transform: translateX(-50%); } to { transform: translateX(0); } }
+@keyframes mcBorderUp    { from { transform: translateY(0); } to { transform: translateY(-50%); } }
+@keyframes mcBorderDown  { from { transform: translateY(-50%); } to { transform: translateY(0); } }
+
 /* Scanline overlay */
 body::after {
   content: '';

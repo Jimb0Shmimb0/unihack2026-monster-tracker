@@ -19,7 +19,7 @@ export default function Preloader() {
 
   useEffect(() => {
     const duration = 1600
-    const interval = 25
+    const interval = 50
     const steps = duration / interval
     let current = 0
 

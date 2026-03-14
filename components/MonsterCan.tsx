@@ -149,9 +149,9 @@ function Can({ accentColor }: { accentColor: string }) {
   useFrame((_, delta) => {
     if (!canRef.current) return
     const s = spring.current
-    const force = (TARGET_SCALE - s.val) * 280
+    const force = (TARGET_SCALE - s.val) * 520
     s.vel += force * delta
-    s.vel *= Math.pow(0.001, delta * 14)
+    s.vel *= Math.pow(0.0001, delta * 18)
     s.val += s.vel * delta
     canRef.current.scale.setScalar(s.val)
     canRef.current.rotation.y += 0.004
@@ -169,7 +169,7 @@ useGLTF.preload('/monster_energy_drink.glb')
 const BORDER_TEXT = 'UNLEASH THE BEAST \u00b7 MONSTER ENERGY \u00b7 HIGH VOLTAGE \u00b7 SYS-CRITICAL OVERDRIVE \u00b7 MAXIMUM POWER \u00b7 ADRENALINE RUSH \u00b7 160MG CAFFEINE \u00b7 '
 
 export default function MonsterCan() {
-  const { selectedDrink } = useSelectedDrink()
+  const selectedDrink = useSelectedDrink()
   const color = selectedDrink.accentColor
 
   const borderStyle = (extra?: React.CSSProperties): React.CSSProperties => ({
@@ -213,13 +213,6 @@ export default function MonsterCan() {
         <Can accentColor={color} />
         <OrbitControls enablePan={false} enableZoom={true} enableDamping dampingFactor={0.05} />
       </Canvas>
-
-      <style>{`
-        @keyframes mcBorderRight { from { transform: translateX(0); } to { transform: translateX(-50%); } }
-        @keyframes mcBorderLeft  { from { transform: translateX(-50%); } to { transform: translateX(0); } }
-        @keyframes mcBorderUp    { from { transform: translateY(0); } to { transform: translateY(-50%); } }
-        @keyframes mcBorderDown  { from { transform: translateY(-50%); } to { transform: translateY(0); } }
-      `}</style>
 
       {/* Top */}
       <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: '22px', borderBottom: `1px solid ${color}80`, background: 'rgba(0,0,0,0.88)', overflow: 'hidden', zIndex: 4, display: 'flex', alignItems: 'center', pointerEvents: 'none' }}>

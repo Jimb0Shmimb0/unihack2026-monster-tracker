@@ -1,8 +1,8 @@
 'use client'
 
-import { useState, useMemo } from 'react'
+import { useState, useMemo, memo } from 'react'
 import { drinks, type DrinkCategory, type EnergyDrink, retailers } from '@/lib/data'
-import { useSelectedDrink } from '@/lib/DrinkContext'
+import { useSetDrink } from '@/lib/DrinkContext'
 import styles from './WorkGrid.module.css'
 
 type SortKey = 'price-asc' | 'price-desc' | 'caffeine-desc' | 'calories-asc' | 'size-desc'
@@ -36,11 +36,11 @@ function getPricePerOz(drink: EnergyDrink) {
   return best.pricePerCan / drink.sizeOz
 }
 
-export default function WorkGrid() {
+function WorkGrid() {
   const [category, setCategory] = useState<DrinkCategory | 'all'>('all')
   const [sortKey, setSortKey] = useState<SortKey>('price-asc')
   const [expanded, setExpanded] = useState<number | null>(null)
-  const { setSelectedDrink } = useSelectedDrink()
+  const setSelectedDrink = useSetDrink()
 
   const filtered = useMemo(() => {
     const base = category === 'all' ? drinks : drinks.filter(d => d.category === category)
@@ -271,3 +271,5 @@ export default function WorkGrid() {
     </section>
   )
 }
+
+export default memo(WorkGrid)

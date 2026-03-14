@@ -104,6 +104,7 @@
 }
 
 .flavorName {
+  will-change: transform, opacity;
   font-family: var(--font-chetkiy), sans-serif;
   font-size: clamp(2.4rem, 5vw, 4.2rem);
   font-weight: 400;
@@ -360,12 +361,12 @@
   89% {
     transform: translateX(-3px) skewX(-1.5deg);
     filter: brightness(1.4);
-    text-shadow: -3px 0 rgba(0, 255, 200, 0.7), 3px 0 var(--accent-glow), 0 0 30px rgba(255, 255, 255, 0.15);
+    text-shadow: -3px 0 var(--accent-glow), 3px 0 var(--accent), 0 0 30px var(--accent-glow);
   }
   91% {
     transform: translateX(3px) skewX(1.5deg);
     filter: brightness(1.2);
-    text-shadow: 3px 0 rgba(0, 255, 200, 0.5), -3px 0 var(--accent-dim), 0 0 30px rgba(255, 255, 255, 0.1);
+    text-shadow: 3px 0 var(--accent-glow), -3px 0 var(--accent-dim), 0 0 30px var(--accent-dim);
   }
   93% {
     transform: translateX(-1px) skewX(-0.5deg);
@@ -560,6 +561,7 @@
 .feedTrack {
   display: flex;
   gap: 0;
+  will-change: transform;
   animation: feedScroll 40s linear infinite;
   padding-left: 160px;
   white-space: nowrap;

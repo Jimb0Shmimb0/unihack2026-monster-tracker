@@ -7,24 +7,28 @@ const spaceGrotesk = Space_Grotesk({
   subsets: ['latin'],
   weight: ['400', '500', '600', '700'],
   variable: '--font-grotesk',
+  display: 'swap',
 })
 
 const spaceMono = Space_Mono({
   subsets: ['latin'],
   weight: ['400', '700'],
   variable: '--font-mono',
+  display: 'swap',
 })
 
 const y2kBrutalism = localFont({
   src: './fonts/y2k-brutalism.otf',
   variable: '--font-y2k',
   weight: '100 900',
+  display: 'swap',
 })
 
 const neoblast = localFont({
   src: '../public/neoblast-futuristic-font/Neoblast-Regular-Demo.otf',
   variable: '--font-chetkiy',
   weight: '400',
+  display: 'swap',
 })
 
 export const metadata: Metadata = {

@@ -1,17 +1,12 @@
 'use client'
 
-import { createContext, useContext, useState, useEffect, type ReactNode } from 'react'
+import { createContext, useContext, useState, useEffect, useMemo, useCallback, type ReactNode } from 'react'
 import { drinks, type EnergyDrink } from './data'
 
-interface DrinkContextType {
-  selectedDrink: EnergyDrink
-  setSelectedDrink: (drink: EnergyDrink) => void
-}
-
-const DrinkContext = createContext<DrinkContextType>({
-  selectedDrink: drinks[0],
-  setSelectedDrink: () => {},
-})
+// Split into two contexts so components that only call setSelectedDrink
+// don't re-render when the selected drink changes
+const DrinkValueContext = createContext<EnergyDrink>(drinks[0])
+const DrinkSetterContext = createContext<(drink: EnergyDrink) => void>(() => {})
 
 function hexToRgb(hex: string): [number, number, number] {
   const n = parseInt(hex.replace('#', ''), 16)
@@ -31,7 +26,12 @@ function applyAccentColor(hex: string) {
 }
 
 export function DrinkProvider({ children }: { children: ReactNode }) {
-  const [selectedDrink, setSelectedDrink] = useState<EnergyDrink>(drinks[0])
+  const [selectedDrink, setSelectedDrinkState] = useState<EnergyDrink>(drinks[0])
+
+  // Stable setter reference - won't change between renders
+  const setSelectedDrink = useCallback((drink: EnergyDrink) => {
+    setSelectedDrinkState(drink)
+  }, [])
 
   useEffect(() => {
     applyAccentColor(selectedDrink.accentColor)
@@ -43,12 +43,20 @@ export function DrinkProvider({ children }: { children: ReactNode }) {
   }, [])
 
   return (
-    <DrinkContext.Provider value={{ selectedDrink, setSelectedDrink }}>
-      {children}
-    </DrinkContext.Provider>
+    <DrinkSetterContext.Provider value={setSelectedDrink}>
+      <DrinkValueContext.Provider value={selectedDrink}>
+        {children}
+      </DrinkValueContext.Provider>
+    </DrinkSetterContext.Provider>
   )
 }
 
+/** Subscribe to the current drink - re-renders when drink changes */
 export function useSelectedDrink() {
-  return useContext(DrinkContext)
+  return useContext(DrinkValueContext)
+}
+
+/** Subscribe to the setter only - never re-renders from drink changes */
+export function useSetDrink() {
+  return useContext(DrinkSetterContext)
 }
