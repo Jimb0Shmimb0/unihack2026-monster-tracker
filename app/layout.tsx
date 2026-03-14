@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import { DrinkProvider } from '@/lib/DrinkContext'
 import { Space_Grotesk, Space_Mono } from 'next/font/google'
 import localFont from 'next/font/local'
 import './globals.css'
@@ -72,7 +73,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${spaceGrotesk.variable} ${spaceMono.variable} ${y2kBrutalism.variable} ${neoblast.variable} ${hyperion.variable} ${maskdown.variable} ${sabersong.variable} ${pickyside.variable}`}>
-        {children}
+        <DrinkProvider>
+          {children}
+        </DrinkProvider>
       </body>
     </html>
   )
