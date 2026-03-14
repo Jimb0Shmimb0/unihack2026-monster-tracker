@@ -6,6 +6,9 @@
   --fg-dim: rgba(232, 232, 232, 0.5);
   --fg-dimmer: rgba(232, 232, 232, 0.2);
   --accent: #39d353;
+  --accent-r: 57;
+  --accent-g: 211;
+  --accent-b: 83;
   --accent-dim: rgba(57, 211, 83, 0.15);
   --accent-glow: rgba(57, 211, 83, 0.3);
   --danger: #ff4444;

@@ -89,7 +89,7 @@ export default function Hero() {
             <span
               key={selectedDrink.id}
               className={styles.flavorName}
-              style={{ color: selectedDrink.accentColor }}
+              data-text={selectedDrink.variant}
             >
               {selectedDrink.variant}
             </span>

@@ -21,8 +21,8 @@ const y2kBrutalism = localFont({
   weight: '100 900',
 })
 
-const chetkiy = localFont({
-  src: './fonts/chetkiy.otf',
+const neoblast = localFont({
+  src: '../public/neoblast-futuristic-font/Neoblast-Regular-Demo.otf',
   variable: '--font-chetkiy',
   weight: '400',
 })
@@ -39,7 +39,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${spaceGrotesk.variable} ${spaceMono.variable} ${y2kBrutalism.variable} ${chetkiy.variable}`}>
+      <body className={`${spaceGrotesk.variable} ${spaceMono.variable} ${y2kBrutalism.variable} ${neoblast.variable}`}>
         {children}
       </body>
     </html>
