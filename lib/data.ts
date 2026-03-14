@@ -346,7 +346,9 @@ export const navLinks = [
   { label: 'Products', href: '/' },
   { label: 'Best Deals', href: '/reportage' },
   { label: 'Price History', href: '/archive' },
+  { label: 'Caffeine Tracker', href: '/tracker' },
   { label: 'About', href: '/about' },
 ];
 
 export const retailers = ['Amazon', 'Walmart', 'Target', '7-Eleven', 'Costco', 'GNC'];
+
