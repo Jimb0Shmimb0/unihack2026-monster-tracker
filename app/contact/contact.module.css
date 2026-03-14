@@ -15,7 +15,7 @@
 }
 
 .num {
-  font-family: var(--font-mono);
+  font-family: var(--font-hyperion);
   font-size: 0.65rem;
   color: var(--fg-dimmer);
   letter-spacing: 0.1em;
@@ -62,7 +62,7 @@
 }
 
 .contactLabel {
-  font-family: var(--font-mono);
+  font-family: var(--font-hyperion);
   font-size: 0.6rem;
   letter-spacing: 0.15em;
   text-transform: uppercase;

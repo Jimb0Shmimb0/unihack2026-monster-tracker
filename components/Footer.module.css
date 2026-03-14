@@ -27,19 +27,26 @@
   gap: 0.5rem;
 }
 
-.footerLogo {
-  font-family: var(--font-display);
-  font-size: 1.1rem;
-  font-weight: 700;
-  letter-spacing: 0.1em;
-  color: var(--accent);
+.footerLogoWrap {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
 }
 
-.footerSub {
-  font-size: 0.58rem;
-  letter-spacing: 0.14em;
+.footerLogoImg {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+  filter: invert(1);
+  mix-blend-mode: screen;
+}
+
+.footerLogo {
+  font-family: var(--font-pickyside), sans-serif;
+  font-size: 1.4rem;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--fg-dimmer);
+  color: var(--fg);
 }
 
 .footerDisclaimer {
@@ -75,11 +82,16 @@
   color: var(--fg-dim);
   text-decoration: none;
   letter-spacing: 0.04em;
-  transition: color 0.2s ease;
+  transition: color 0.2s ease, text-shadow 0.2s ease;
 }
 
 .footerCol a:hover {
   color: var(--accent);
+  text-shadow:
+    0 0 6px var(--accent),
+    0 0 20px var(--accent-glow),
+    0 0 40px var(--accent-glow),
+    0 0 80px var(--accent-dim);
 }
 
 .footerBottom {
