@@ -8,9 +8,9 @@ import { useSelectedDrink } from '@/lib/DrinkContext'
 
 const TARGET_SCALE = 0.55
 
+
 function Can({ accentColor }: { accentColor: string }) {
   const canRef = useRef<THREE.Group>(null)
-  const spring = useRef({ val: 0, vel: 0 })
   const { scene } = useGLTF('/monster_energy_drink.glb')
   const meshMats = useRef<THREE.MeshStandardMaterial[]>([])
   const wireMats = useRef<THREE.MeshBasicMaterial[]>([])
@@ -146,19 +146,13 @@ function Can({ accentColor }: { accentColor: string }) {
     wireMats.current.forEach(m => m.color.set(c))
   }, [accentColor])
 
-  useFrame((_, delta) => {
+  useFrame(() => {
     if (!canRef.current) return
-    const s = spring.current
-    const force = (TARGET_SCALE - s.val) * 520
-    s.vel += force * delta
-    s.vel *= Math.pow(0.0001, delta * 18)
-    s.val += s.vel * delta
-    canRef.current.scale.setScalar(s.val)
     canRef.current.rotation.y += 0.004
   })
 
   return (
-    <group ref={canRef} scale={0} rotation={[0.2, 0, 0.12]} position={[0, -1.0, 0]}>
+    <group ref={canRef} scale={TARGET_SCALE} rotation={[0.2, 0, 0.12]} position={[0, -1.0, 0]}>
       <primitive object={scene} />
     </group>
   )
