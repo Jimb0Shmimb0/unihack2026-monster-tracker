@@ -15,7 +15,7 @@
   --border: rgba(232, 232, 232, 0.08);
   --border-accent: rgba(57, 211, 83, 0.2);
   --font-display: var(--font-y2k), var(--font-grotesk), 'Arial Black', sans-serif;
-  --font-mono: var(--font-mono), 'Courier New', monospace;
+  --font-hyperion: var(--font-hyperion), 'Courier New', monospace;
   --radius: 4px;
 }
 
@@ -35,7 +35,7 @@ html {
 
 body {
   background-color: var(--bg);
-  font-family: var(--font-mono);
+  font-family: var(--font-hyperion);
   overflow-x: hidden;
 }
 

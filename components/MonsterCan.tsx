@@ -168,7 +168,7 @@ export default function MonsterCan() {
 
   const borderStyle = (extra?: React.CSSProperties): React.CSSProperties => ({
     color,
-    fontFamily: 'monospace',
+    fontFamily: 'var(--font-y2k), monospace',
     fontWeight: 700,
     fontSize: '8px',
     letterSpacing: '0.18em',

@@ -33,7 +33,7 @@
 }
 
 .message {
-  font-family: var(--font-mono);
+  font-family: var(--font-hyperion);
   font-size: 0.6rem;
   letter-spacing: 0.16em;
   text-transform: uppercase;
@@ -58,7 +58,7 @@
 }
 
 .counter {
-  font-family: var(--font-mono);
+  font-family: var(--font-hyperion);
   font-size: 0.58rem;
   letter-spacing: 0.2em;
   color: var(--fg-dimmer);
