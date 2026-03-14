@@ -31,30 +31,26 @@
   text-decoration: none;
 }
 
-.logoMark {
-  font-size: 1.1rem;
-  line-height: 1;
+.logoImg {
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+  filter: invert(1);
+  mix-blend-mode: screen;
 }
 
 .logoText {
-  font-family: var(--font-display);
-  font-size: 1rem;
-  font-weight: 700;
-  letter-spacing: 0.14em;
-  color: var(--accent);
-}
-
-.logoSub {
-  font-size: 0.55rem;
-  letter-spacing: 0.12em;
+  font-family: var(--font-pickyside), sans-serif;
+  font-size: 1.1rem;
+  letter-spacing: 0.05em;
   text-transform: uppercase;
-  color: var(--fg-dim);
-  display: none;
+  color: var(--fg);
+  line-height: 1;
 }
 
-@media (min-width: 600px) {
-  .logoSub {
-    display: inline;
+@media (max-width: 600px) {
+  .logoText {
+    display: none;
   }
 }
 

@@ -16,7 +16,7 @@
 }
 
 .num {
-  font-family: var(--font-mono);
+  font-family: var(--font-hyperion);
   font-size: 0.65rem;
   color: var(--fg-dimmer);
   letter-spacing: 0.1em;
@@ -51,7 +51,7 @@
 }
 
 .itemNum {
-  font-family: var(--font-mono);
+  font-family: var(--font-hyperion);
   font-size: 0.6rem;
   color: var(--fg-dimmer);
   letter-spacing: 0.1em;
@@ -93,7 +93,7 @@
 .itemType,
 .itemCat,
 .itemClient {
-  font-family: var(--font-mono);
+  font-family: var(--font-hyperion);
   font-size: 0.55rem;
   letter-spacing: 0.1em;
   text-transform: uppercase;
