@@ -416,7 +416,7 @@
 }
 
 .retailerRowBest {
-  background: rgba(57, 211, 83, 0.04);
+  background: rgba(var(--accent-r), var(--accent-g), var(--accent-b), 0.06);
   padding-left: 0.5rem;
   margin-left: -0.5rem;
   border-radius: var(--radius);
