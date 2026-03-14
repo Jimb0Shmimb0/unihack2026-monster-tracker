@@ -67,6 +67,13 @@ const chetkiy = localFont({
   display: 'swap',
 })
 
+const curseyt = localFont({
+  src: '../public/curseyt/Curseyt.otf',
+  variable: '--font-curseyt',
+  weight: '400',
+  display: 'swap',
+})
+
 export const metadata: Metadata = {
   title: 'VOLT - Energy Drink Price Tracker',
   description: 'Track Monster Energy drink prices in real time across Amazon, Walmart, Target, 7-Eleven, Costco and more. Compare by caffeine content, price per serving, and size.',
@@ -79,7 +86,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${spaceGrotesk.variable} ${spaceMono.variable} ${y2kBrutalism.variable} ${neoblast.variable} ${hyperion.variable} ${maskdown.variable} ${sabersong.variable} ${pickyside.variable} ${chetkiy.variable}`}>
+      <body className={`${spaceGrotesk.variable} ${spaceMono.variable} ${y2kBrutalism.variable} ${neoblast.variable} ${hyperion.variable} ${maskdown.variable} ${sabersong.variable} ${pickyside.variable} ${chetkiy.variable} ${curseyt.variable}`}>
         <DrinkProvider>
           {children}
         </DrinkProvider>
