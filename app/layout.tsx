@@ -21,6 +21,12 @@ const y2kBrutalism = localFont({
   weight: '100 900',
 })
 
+const chetkiy = localFont({
+  src: './fonts/chetkiy.otf',
+  variable: '--font-chetkiy',
+  weight: '400',
+})
+
 export const metadata: Metadata = {
   title: 'VOLT - Energy Drink Price Tracker',
   description: 'Track Monster Energy drink prices in real time across Amazon, Walmart, Target, 7-Eleven, Costco and more. Compare by caffeine content, price per serving, and size.',
@@ -33,7 +39,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${spaceGrotesk.variable} ${spaceMono.variable} ${y2kBrutalism.variable}`}>
+      <body className={`${spaceGrotesk.variable} ${spaceMono.variable} ${y2kBrutalism.variable} ${chetkiy.variable}`}>
         {children}
       </body>
     </html>

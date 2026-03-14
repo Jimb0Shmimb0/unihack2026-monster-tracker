@@ -2,6 +2,7 @@
 
 import { useState, useMemo } from 'react'
 import { drinks, type DrinkCategory, type EnergyDrink, retailers } from '@/lib/data'
+import { useSelectedDrink } from '@/lib/DrinkContext'
 import styles from './WorkGrid.module.css'
 
 type SortKey = 'price-asc' | 'price-desc' | 'caffeine-desc' | 'calories-asc' | 'size-desc'
@@ -39,6 +40,7 @@ export default function WorkGrid() {
   const [category, setCategory] = useState<DrinkCategory | 'all'>('all')
   const [sortKey, setSortKey] = useState<SortKey>('price-asc')
   const [expanded, setExpanded] = useState<number | null>(null)
+  const { setSelectedDrink } = useSelectedDrink()
 
   const filtered = useMemo(() => {
     const base = category === 'all' ? drinks : drinks.filter(d => d.category === category)
@@ -126,7 +128,7 @@ export default function WorkGrid() {
               {/* Main row */}
               <button
                 className={styles.rowMain}
-                onClick={() => setExpanded(isExpanded ? null : drink.id)}
+                onClick={() => { setExpanded(isExpanded ? null : drink.id); setSelectedDrink(drink) }}
                 aria-expanded={isExpanded}
               >
                 <div className={styles.rowLeft}>
