@@ -9,44 +9,7 @@
   border-bottom: 1px solid var(--border);
 }
 
-/* Grid background */
-.hero::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background-image:
-    linear-gradient(rgba(var(--accent-r), var(--accent-g), var(--accent-b), 0.04) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(var(--accent-r), var(--accent-g), var(--accent-b), 0.04) 1px, transparent 1px);
-  background-size: 60px 60px;
-  pointer-events: none;
-  z-index: 0;
-}
-
-/* Wave of light sweeping top to bottom */
-.hero::after {
-  content: '';
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: -100%;
-  height: 300%;
-  background: linear-gradient(
-    180deg,
-    transparent 35%,
-    rgba(var(--accent-r), var(--accent-g), var(--accent-b), 0.04) 44%,
-    rgba(var(--accent-r), var(--accent-g), var(--accent-b), 0.13) 50%,
-    rgba(var(--accent-r), var(--accent-g), var(--accent-b), 0.04) 56%,
-    transparent 65%
-  );
-  animation: gridWave 9s ease-in-out infinite;
-  pointer-events: none;
-  z-index: 0;
-}
-
-@keyframes gridWave {
-  0%   { transform: translateY(-33%); }
-  100% { transform: translateY(33%); }
-}
+/* gridWave defined in globals.css - grid + wave backgrounds now global via body::before / html::before */
 
 .heroInner {
   position: relative;

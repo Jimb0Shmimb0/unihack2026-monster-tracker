@@ -3,11 +3,10 @@ import Nav from '@/components/Nav'
 import Hero from '@/components/Hero'
 import WorkGrid from '@/components/WorkGrid'
 import Footer from '@/components/Footer'
-import { DrinkProvider } from '@/lib/DrinkContext'
 
 export default function Home() {
   return (
-    <DrinkProvider>
+    <>
       <Preloader />
       <Nav />
       <main>
@@ -15,6 +14,6 @@ export default function Home() {
         <WorkGrid />
       </main>
       <Footer />
-    </DrinkProvider>
+    </>
   )
 }

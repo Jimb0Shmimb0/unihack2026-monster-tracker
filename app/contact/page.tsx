@@ -6,35 +6,49 @@ export const metadata = {
   title: 'Contact | VOLT Price Tracker',
 }
 
+const contacts = [
+  { label: 'General Inquiries', email: 'hello@voltprices.com' },
+  { label: 'Price Corrections', email: 'prices@voltprices.com' },
+  { label: 'Product Requests', email: 'products@voltprices.com' },
+]
+
 export default function ContactPage() {
   return (
     <>
       <Nav />
       <main className={styles.main}>
-        <div className={styles.header}>
-          <span className={styles.num}>05.</span>
-          <h1 className={styles.title}>Contact</h1>
+        <div className={styles.pageHeader}>
+          <div className={styles.pageHeaderInner}>
+            <span className={styles.pageNum}>05</span>
+            <div className={styles.pageTitleWrap}>
+              <h1 className={styles.pageTitle}>Contact</h1>
+              <p className={styles.pageSubtitle}>Suggestions, pricing errors, or product requests.</p>
+            </div>
+          </div>
         </div>
 
-        <div className={styles.content}>
-          <div className={styles.intro}>
-            <p>Have a suggestion, found a pricing error, or want to request a new product or retailer?</p>
-          </div>
+        <div className={styles.body}>
+          <section className={styles.section}>
+            <div className={styles.sectionLabel}>Get in Touch</div>
+            <div className={styles.contactList}>
+              {contacts.map((c, i) => (
+                <div key={c.label} className={styles.contactRow}>
+                  <span className={styles.contactNum}>{String(i + 1).padStart(2, '0')}</span>
+                  <span className={styles.contactLabel}>{c.label}</span>
+                  <a href={`mailto:${c.email}`} className={styles.contactLink}>{c.email}</a>
+                </div>
+              ))}
+            </div>
+          </section>
 
-          <div className={styles.contacts}>
-            <div className={styles.contactItem}>
-              <span className={styles.contactLabel}>General Inquiries</span>
-              <a href="mailto:hello@voltprices.com" className={styles.contactLink}>hello@voltprices.com</a>
-            </div>
-            <div className={styles.contactItem}>
-              <span className={styles.contactLabel}>Price Corrections</span>
-              <a href="mailto:prices@voltprices.com" className={styles.contactLink}>prices@voltprices.com</a>
-            </div>
-            <div className={styles.contactItem}>
-              <span className={styles.contactLabel}>Product Requests</span>
-              <a href="mailto:products@voltprices.com" className={styles.contactLink}>products@voltprices.com</a>
-            </div>
-          </div>
+          <section className={styles.section}>
+            <div className={styles.sectionLabel}>Note</div>
+            <p className={styles.prose}>
+              VOLT is not affiliated with Monster Energy Company or any listed retailers.
+              All prices are sourced from publicly available listings and updated regularly.
+              Response times may vary.
+            </p>
+          </section>
         </div>
       </main>
       <Footer />
