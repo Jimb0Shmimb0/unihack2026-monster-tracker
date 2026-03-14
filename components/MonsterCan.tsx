@@ -23,13 +23,28 @@ function Can({ accentColor }: { accentColor: string }) {
       if ((obj as THREE.Mesh).isMesh) {
         const mesh = obj as THREE.Mesh
         const orig = (Array.isArray(mesh.material) ? mesh.material[0] : mesh.material) as THREE.MeshStandardMaterial
+
+        // Greyscale the texture by drawing it through a canvas filter
+        let greyMap: THREE.Texture | null = null
+        if (orig.map?.image) {
+          const img = orig.map.image as HTMLImageElement
+          const canvas = document.createElement('canvas')
+          canvas.width = img.naturalWidth || img.width
+          canvas.height = img.naturalHeight || img.height
+          const ctx = canvas.getContext('2d')!
+          ctx.filter = 'grayscale(1) contrast(4) brightness(2.5)'
+          ctx.drawImage(img, 0, 0)
+          greyMap = new THREE.CanvasTexture(canvas)
+          greyMap.flipY = orig.map.flipY
+          greyMap.colorSpace = orig.map.colorSpace
+        }
+
         const mat = new THREE.MeshStandardMaterial({
-          map: orig.map ?? null,
-          emissive: new THREE.Color(accentColor),
-          emissiveMap: orig.map ?? null,
-          emissiveIntensity: 1.2,
-          roughness: 0.4,
-          metalness: 0.3,
+          map: greyMap,
+          emissive: new THREE.Color(0x000000),
+          emissiveIntensity: 0,
+          roughness: 0.5,
+          metalness: 0.2,
         })
         mesh.material = mat
         meshMats.current.push(mat)
@@ -125,10 +140,9 @@ function Can({ accentColor }: { accentColor: string }) {
     })
   }, [scene])
 
-  // Update all material colors when accentColor changes
+  // Update wireframe colors when accentColor changes
   useEffect(() => {
     const c = new THREE.Color(accentColor)
-    meshMats.current.forEach(m => m.emissive.set(c))
     wireMats.current.forEach(m => m.color.set(c))
   }, [accentColor])
 
@@ -192,9 +206,9 @@ export default function MonsterCan() {
         gl={{ antialias: true, alpha: true }}
         style={{ background: 'transparent', position: 'relative', zIndex: 1 }}
       >
-        <ambientLight intensity={0.2} />
-        <directionalLight position={[2, 4, 4]} intensity={0.8} />
-        <pointLight position={[0, 2, 4]} intensity={1.5} color="#ffffff" distance={10} />
+        <ambientLight intensity={1.5} />
+        <directionalLight position={[2, 4, 4]} intensity={3} />
+        <pointLight position={[0, 2, 4]} intensity={4} color="#ffffff" distance={15} />
         <pointLight position={[-3, 2, 3]} intensity={1.0} color={color} distance={10} />
         <Can accentColor={color} />
         <OrbitControls enablePan={false} enableZoom={true} enableDamping dampingFactor={0.05} />
