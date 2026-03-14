@@ -1,13 +1,20 @@
 import Nav from '@/components/Nav'
 import Footer from '@/components/Footer'
-import { drinks } from '@/lib/data'
+import client from '@/lib/elasticsearch'
+import { type EnergyDrink } from '@/lib/data'
 import styles from './archive.module.css'
 
 export const metadata = {
   title: 'Price History | VOLT',
 }
 
-export default function ArchivePage() {
+export default async function ArchivePage() {
+  const { hits } = await client.search<EnergyDrink>({
+    index: 'volt-drinks',
+    query: { match_all: {} },
+    size: 50,
+  })
+  const drinks = hits.hits.map(h => h._source!)
   return (
     <>
       <Nav />

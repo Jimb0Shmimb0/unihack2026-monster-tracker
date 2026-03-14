@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react'
 import dynamic from 'next/dynamic'
-import { drinks } from '@/lib/data'
+import { type EnergyDrink } from '@/lib/data'
 import styles from './Hero.module.css'
 
 const MonsterCan = dynamic(() => import('./MonsterCan'), { ssr: false })
@@ -14,13 +14,13 @@ const stats = [
   { label: 'Prices Updated', value: 'Real-time' },
 ]
 
-function getBestDeal(drink: typeof drinks[0]) {
+function getBestDeal(drink: EnergyDrink) {
   const inStock = drink.retailers.filter(r => r.inStock)
   if (!inStock.length) return null
   return inStock.reduce((a, b) => a.pricePerCan < b.pricePerCan ? a : b)
 }
 
-export default function Hero() {
+export default function Hero({ drinks }: { drinks: EnergyDrink[] }) {
   const [tickerIndex, setTickerIndex] = useState(0)
 
   useEffect(() => {

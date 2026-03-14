@@ -7,16 +7,16 @@
 - [ ] Verify `.env.local` is in `.gitignore`
 
 ## Step 2 — ES client singleton
-- [ ] Create `lib/elasticsearch.ts`
+- [x] Create `lib/elasticsearch.ts`
 
 ## Step 3 — Seed script
-- [ ] Create `scripts/seed-elasticsearch.ts`
-- [ ] Run seed script and verify documents appear in Elastic Cloud UI
+- [x] Create `scripts/seed-elasticsearch.ts`
+- [x] Run seed script and verify documents appear in Elastic Cloud UI
 
 ## Step 4 — API route
-- [ ] Create `app/api/drinks/route.ts` with full-text search support
+- [x] Create `app/api/drinks/route.ts` with full-text search support
 
 ## Step 5 — Wire up pages
-- [ ] Update `/reportage` (Best Deals) to fetch from API route
-- [ ] Update `/archive` (Price History) to fetch from API route
-- [ ] Update home page product grid to fetch from API route
+- [x] Update `/reportage` (Best Deals) to fetch from Elasticsearch
+- [x] Update `/archive` (Price History) to fetch from Elasticsearch
+- [x] Update home page product grid to fetch from Elasticsearch
