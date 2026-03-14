@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
 import { navLinks } from '@/lib/data'
 import styles from './Nav.module.css'
 
@@ -29,9 +30,14 @@ export default function Nav() {
     <nav className={`${styles.nav} ${scrolled ? styles.scrolled : ''}`}>
       <div className={styles.navInner}>
         <Link href="/" className={styles.logo}>
-          <span className={styles.logoMark}>⚡</span>
-          <span className={styles.logoText}>VOLT</span>
-          <span className={styles.logoSub}>Price Tracker</span>
+          <Image
+            src="/Single Bolt Lightning Skull Image-1.png"
+            alt="VOLT"
+            width={48}
+            height={48}
+            className={styles.logoImg}
+          />
+          <span className={styles.logoText}>VOLT PRICE TRACKER</span>
         </Link>
 
         <ul className={styles.navLinks}>

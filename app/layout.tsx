@@ -38,6 +38,27 @@ const hyperion = localFont({
   display: 'swap',
 })
 
+const maskdown = localFont({
+  src: '../public/maskdown-font/MaskdownOne-BWV7V.otf',
+  variable: '--font-maskdown',
+  weight: '400',
+  display: 'swap',
+})
+
+const sabersong = localFont({
+  src: '../public/sabersong-font/Sabersong-L3Djy.otf',
+  variable: '--font-sabersong',
+  weight: '400',
+  display: 'swap',
+})
+
+const pickyside = localFont({
+  src: '../public/pickyside-grunge-font/PickysideGrungeRegular-7OMol.otf',
+  variable: '--font-pickyside',
+  weight: '400',
+  display: 'swap',
+})
+
 export const metadata: Metadata = {
   title: 'VOLT - Energy Drink Price Tracker',
   description: 'Track Monster Energy drink prices in real time across Amazon, Walmart, Target, 7-Eleven, Costco and more. Compare by caffeine content, price per serving, and size.',
@@ -50,7 +71,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${spaceGrotesk.variable} ${spaceMono.variable} ${y2kBrutalism.variable} ${neoblast.variable} ${hyperion.variable}`}>
+      <body className={`${spaceGrotesk.variable} ${spaceMono.variable} ${y2kBrutalism.variable} ${neoblast.variable} ${hyperion.variable} ${maskdown.variable} ${sabersong.variable} ${pickyside.variable}`}>
         {children}
       </body>
     </html>

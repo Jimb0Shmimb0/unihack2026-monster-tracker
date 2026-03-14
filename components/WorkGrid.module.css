@@ -150,7 +150,7 @@
 }
 
 .productRow:hover {
-  background: rgba(57, 211, 83, 0.02);
+  background: rgba(var(--accent-r), var(--accent-g), var(--accent-b), 0.05);
 }
 
 .rowMain {

@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, useEffect } from 'react'
+import Image from 'next/image'
 import styles from './Preloader.module.css'
 
 const messages = [
@@ -42,7 +43,14 @@ export default function Preloader() {
   return (
     <div className={`${styles.preloader} ${count === 100 ? styles.done : ''}`}>
       <div className={styles.inner}>
-        <div className={styles.logo}>⚡ VOLT</div>
+        <Image
+          src="/Single Bolt Lightning Skull Image-1.png"
+          alt="VOLT"
+          width={120}
+          height={120}
+          className={styles.logo}
+          priority
+        />
         <div className={styles.message}>{messages[msgIndex]}</div>
         <div className={styles.barWrap}>
           <div className={styles.bar} style={{ width: `${count}%` }} />
