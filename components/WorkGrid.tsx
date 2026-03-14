@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useMemo, memo } from 'react'
+import { useState, useMemo, useEffect, useRef, memo } from 'react'
 import { drinks, type DrinkCategory, type EnergyDrink, retailers } from '@/lib/data'
 import { useSetDrink } from '@/lib/DrinkContext'
 import styles from './WorkGrid.module.css'
@@ -41,6 +41,7 @@ function WorkGrid() {
   const [sortKey, setSortKey] = useState<SortKey>('price-asc')
   const [expanded, setExpanded] = useState<number | null>(null)
   const setSelectedDrink = useSetDrink()
+  const listRef = useRef<HTMLDivElement>(null)
 
   const filtered = useMemo(() => {
     const base = category === 'all' ? drinks : drinks.filter(d => d.category === category)
@@ -67,6 +68,27 @@ function WorkGrid() {
       }
     })
   }, [category, sortKey])
+
+  useEffect(() => {
+    const list = listRef.current
+    if (!list) return
+    const rows = Array.from(list.children) as HTMLElement[]
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return
+        const nameEl = (entry.target as HTMLElement).querySelector(`.${styles.rowName}`) as HTMLElement | null
+        if (nameEl) {
+          const chars = nameEl.textContent?.length ?? 20
+          nameEl.style.animation = `typewriter ${Math.max(0.4, chars * 0.04)}s steps(${chars}) forwards`
+        }
+        observer.unobserve(entry.target)
+      })
+    }, { threshold: 0.15 })
+
+    rows.forEach(row => observer.observe(row))
+    return () => observer.disconnect()
+  }, [filtered])
 
   return (
     <section className={styles.section} id="products">
@@ -117,7 +139,7 @@ function WorkGrid() {
       </div>
 
       {/* Product rows */}
-      <div className={styles.productList}>
+      <div className={styles.productList} ref={listRef}>
         {filtered.map((drink, i) => {
           const best = getBestPrice(drink)
           const pricePerOz = getPricePerOz(drink)

@@ -3,8 +3,8 @@
   --bg-secondary: #111111;
   --bg-card: #0f0f0f;
   --fg: #e8e8e8;
-  --fg-dim: rgba(232, 232, 232, 0.5);
-  --fg-dimmer: rgba(232, 232, 232, 0.2);
+  --fg-dim: rgba(232, 232, 232, 0.7);
+  --fg-dimmer: rgba(232, 232, 232, 0.4);
   --accent: #39d353;
   --accent-r: 57;
   --accent-g: 211;
@@ -70,6 +70,12 @@ button {
   border: none;
   background: none;
   font-family: inherit;
+}
+
+/* Typewriter reveal animation */
+@keyframes typewriter {
+  from { clip-path: inset(0 100% 0 0); }
+  to   { clip-path: inset(0 0% 0 0); }
 }
 
 /* MonsterCan border text animations */

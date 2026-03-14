@@ -114,27 +114,30 @@
   font-size: 0.5rem;
   letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: var(--fg-dimmer);
+  color: var(--fg-dim);
 }
 
 .retailerHeaderRight {
   display: flex;
   gap: 0;
+  padding-right: 35px;
 }
 
 .retailerName {
-  font-size: 0.5rem;
+  width: 80px;
+  font-size: 0.55rem;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--fg-dimmer);
-  width: 80px;
+  color: var(--fg-dim);
   text-align: center;
-  padding: 0 0.25rem;
+  padding: 0;
 }
 
 .retailerName:last-child {
+  width: 90px;
   color: var(--accent);
   font-weight: 700;
+  text-align: center;
 }
 
 /* Product list */
@@ -210,6 +213,7 @@
 }
 
 .rowName {
+  clip-path: inset(0 100% 0 0);
   font-family: var(--font-y2k);
   font-size: 0.95rem;
   font-weight: 600;
