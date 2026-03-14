@@ -1,6 +1,7 @@
 .main {
   padding: 10rem 2.5rem 6rem;
   min-height: 100vh;
+  font-family: var(--font-display);
 }
 
 .header {

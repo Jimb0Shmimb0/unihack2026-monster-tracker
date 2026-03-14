@@ -1,8 +1,10 @@
 'use client'
 
-import { useState, useMemo } from 'react'
+import { useState, useMemo, useEffect } from 'react'
 import { drinks, type DrinkCategory, type EnergyDrink, retailers } from '@/lib/data'
 import styles from './WorkGrid.module.css'
+
+type LivePrices = Record<string, { Woolworths: number | null; Coles: number | null }>
 
 type SortKey = 'price-asc' | 'price-desc' | 'caffeine-desc' | 'calories-asc' | 'size-desc'
 
@@ -11,8 +13,7 @@ const categoryFilters: { label: string; value: DrinkCategory | 'all' }[] = [
   { label: 'Original', value: 'original' },
   { label: 'Ultra', value: 'ultra' },
   { label: 'Juice', value: 'juice' },
-  { label: 'Hydro', value: 'hydro' },
-  { label: 'Rehab', value: 'rehab' },
+  { label: 'Java', value: 'java' },
 ]
 
 const sortOptions: { label: string; value: SortKey }[] = [
@@ -24,7 +25,7 @@ const sortOptions: { label: string; value: SortKey }[] = [
 ]
 
 function getBestPrice(drink: EnergyDrink) {
-  const inStock = drink.retailers.filter(r => r.inStock)
+  const inStock = drink.retailers.filter(r => r.inStock && r.retailer !== 'Costco Australia')
   if (!inStock.length) return null
   return inStock.reduce((a, b) => a.pricePerCan < b.pricePerCan ? a : b)
 }
@@ -39,6 +40,23 @@ export default function WorkGrid() {
   const [category, setCategory] = useState<DrinkCategory | 'all'>('all')
   const [sortKey, setSortKey] = useState<SortKey>('price-asc')
   const [expanded, setExpanded] = useState<number | null>(null)
+  const [livePrices, setLivePrices] = useState<LivePrices>({})
+  const [liveLoading, setLiveLoading] = useState(true)
+
+  useEffect(() => {
+    fetch('/api/prices')
+      .then(r => r.json())
+      .then((data: LivePrices) => { setLivePrices(data); setLiveLoading(false) })
+      .catch(() => setLiveLoading(false))
+  }, [])
+
+  function getLivePrice(drinkId: number, retailer: string): number | null | undefined {
+    const entry = livePrices[String(drinkId)]
+    if (!entry) return undefined
+    if (retailer === 'Woolworths') return entry.Woolworths
+    if (retailer === 'Coles') return entry.Coles
+    return undefined
+  }
 
   const filtered = useMemo(() => {
     const base = category === 'all' ? drinks : drinks.filter(d => d.category === category)
@@ -108,7 +126,14 @@ export default function WorkGrid() {
         <div className={styles.retailerHeaderLeft}>Product</div>
         <div className={styles.retailerHeaderRight}>
           {retailers.map(r => (
-            <span key={r} className={styles.retailerName}>{r}</span>
+            <span key={r} className={styles.retailerName}>
+              {r}
+              {(r === 'Woolworths' || r === 'Coles') && (
+                <span className={`${styles.liveTag} ${liveLoading ? styles.liveTagLoading : ''}`}>
+                  {liveLoading ? '…' : 'live'}
+                </span>
+              )}
+            </span>
           ))}
           <span className={styles.retailerName}>Best</span>
         </div>
@@ -135,7 +160,16 @@ export default function WorkGrid() {
                     className={styles.canSwatch}
                     style={{ background: `linear-gradient(135deg, ${drink.accentColor}88, ${drink.accentColor}33)`, borderColor: `${drink.accentColor}44` }}
                   >
-                    <span className={styles.canIcon}>⚡</span>
+                    {drink.image ? (
+                      <img
+                        src={drink.image}
+                        alt={`${drink.name} ${drink.variant}`}
+                        className={styles.canImg}
+                        loading="lazy"
+                      />
+                    ) : (
+                      <span className={styles.canIcon}>⚡</span>
+                    )}
                   </div>
                   <div className={styles.rowInfo}>
                     <div className={styles.rowName}>{drink.name}</div>
@@ -161,14 +195,21 @@ export default function WorkGrid() {
                         <span className={styles.priceNA}>—</span>
                       </span>
                     )
+                    const livePrice = getLivePrice(drink.id, retailer)
+                    const displayPrice = (livePrice != null) ? livePrice : rp.pricePerCan
+                    const isLive = livePrice != null
+                    const inStock = rp.inStock || isLive
                     const isBestRetailer = best?.retailer === retailer
                     return (
                       <span
                         key={retailer}
-                        className={`${styles.priceCell} ${!rp.inStock ? styles.priceCellOos : ''} ${isBestRetailer ? styles.priceCellBest : ''}`}
+                        className={`${styles.priceCell} ${!inStock ? styles.priceCellOos : ''} ${isBestRetailer ? styles.priceCellBest : ''}`}
                       >
-                        {rp.inStock ? (
-                          <span className={styles.priceValue}>${rp.pricePerCan.toFixed(2)}</span>
+                        {inStock ? (
+                          <>
+                            <span className={styles.priceValue}>${displayPrice.toFixed(2)}</span>
+                            {isLive && <span className={styles.liveDot} title="Live price" />}
+                          </>
                         ) : (
                           <span className={styles.priceOos}>OOS</span>
                         )}

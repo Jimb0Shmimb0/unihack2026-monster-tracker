@@ -11,6 +11,10 @@ const nextConfig = {
         protocol: 'https',
         hostname: 'd3b24qxei2vojx.cloudfront.net',
       },
+      {
+        protocol: 'https',
+        hostname: 'productimages.coles.com.au',
+      },
     ],
   },
 }
