@@ -1,0 +1,130 @@
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  transition: background 0.3s ease, border-color 0.3s ease;
+  border-bottom: 1px solid transparent;
+}
+
+.scrolled {
+  background: rgba(8, 8, 8, 0.95);
+  backdrop-filter: blur(12px);
+  border-bottom-color: var(--border);
+}
+
+.navInner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 2rem;
+  height: 60px;
+  max-width: 1600px;
+  margin: 0 auto;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+}
+
+.logoMark {
+  font-size: 1.1rem;
+  line-height: 1;
+}
+
+.logoText {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  color: var(--accent);
+}
+
+.logoSub {
+  font-size: 0.55rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--fg-dim);
+  display: none;
+}
+
+@media (min-width: 600px) {
+  .logoSub {
+    display: inline;
+  }
+}
+
+.navLinks {
+  display: flex;
+  list-style: none;
+  gap: 2rem;
+}
+
+.navLink {
+  font-size: 0.65rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--fg-dim);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.navLink:hover {
+  color: var(--accent);
+}
+
+.navRight {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.liveIndicator {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.liveDot {
+  width: 6px;
+  height: 6px;
+  background: var(--accent);
+  border-radius: 50%;
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(0.8); }
+}
+
+.liveText {
+  font-size: 0.55rem;
+  letter-spacing: 0.18em;
+  color: var(--accent);
+  font-weight: 700;
+}
+
+.clock {
+  font-size: 0.6rem;
+  letter-spacing: 0.06em;
+  color: var(--fg-dimmer);
+  font-variant-numeric: tabular-nums;
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .clock {
+    display: inline;
+  }
+}
+
+@media (max-width: 600px) {
+  .navLinks {
+    display: none;
+  }
+}
