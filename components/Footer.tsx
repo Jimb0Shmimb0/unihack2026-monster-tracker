@@ -1,4 +1,3 @@
-import Image from 'next/image'
 import styles from './Footer.module.css'
 
 export default function Footer() {
@@ -6,16 +5,8 @@ export default function Footer() {
     <footer className={styles.footer}>
       <div className={styles.footerInner}>
         <div className={styles.footerLeft}>
-          <div className={styles.footerLogoWrap}>
-            <Image
-              src="/Single Bolt Lightning Skull Image-1.png"
-              alt="VOLT"
-              width={80}
-              height={80}
-              className={styles.footerLogoImg}
-            />
-            <span className={styles.footerLogo}>VOLT PRICE TRACKER</span>
-          </div>
+          <span className={styles.footerLogo}>⚡ VOLT</span>
+          <span className={styles.footerSub}>Energy Drink Price Tracker</span>
           <p className={styles.footerDisclaimer}>
             Prices are sourced from public retailer listings and updated regularly.
             Actual prices may vary. Not affiliated with Monster Energy or any retailer.

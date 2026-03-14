@@ -1,21 +1,13 @@
 import Nav from '@/components/Nav'
 import Footer from '@/components/Footer'
-import client from '@/lib/elasticsearch'
-import { type EnergyDrink } from '@/lib/data'
+import { drinks } from '@/lib/data'
 import styles from './reportage.module.css'
 
 export const metadata = {
   title: 'Best Deals | VOLT Price Tracker',
 }
 
-export default async function DealsPage() {
-  const { hits } = await client.search<EnergyDrink>({
-    index: 'volt-drinks',
-    query: { match_all: {} },
-    size: 50,
-  })
-  const drinks = hits.hits.map(h => h._source!)
-
+export default function DealsPage() {
   const bestDeals = drinks
     .map(drink => {
       const inStock = drink.retailers.filter(r => r.inStock)

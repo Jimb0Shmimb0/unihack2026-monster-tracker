@@ -15,7 +15,7 @@
 }
 
 .num {
-  font-family: var(--font-hyperion);
+  font-family: var(--font-mono);
   font-size: 0.65rem;
   color: var(--fg-dimmer);
   letter-spacing: 0.1em;
@@ -64,7 +64,7 @@
 }
 
 .disciplines h2 {
-  font-family: var(--font-hyperion);
+  font-family: var(--font-mono);
   font-size: 0.6rem;
   letter-spacing: 0.2em;
   text-transform: uppercase;
@@ -89,7 +89,7 @@
 }
 
 .clients h2 {
-  font-family: var(--font-hyperion);
+  font-family: var(--font-mono);
   font-size: 0.6rem;
   letter-spacing: 0.2em;
   text-transform: uppercase;
@@ -104,7 +104,7 @@
 }
 
 .client {
-  font-family: var(--font-hyperion);
+  font-family: var(--font-mono);
   font-size: 0.6rem;
   letter-spacing: 0.12em;
   text-transform: uppercase;

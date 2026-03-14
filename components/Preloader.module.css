@@ -24,15 +24,16 @@
 }
 
 .logo {
-  width: 120px;
-  height: 120px;
-  object-fit: contain;
-  filter: invert(1);
-  mix-blend-mode: screen;
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  color: var(--accent);
+  text-shadow: 0 0 40px rgba(57, 211, 83, 0.5);
 }
 
 .message {
-  font-family: var(--font-hyperion);
+  font-family: var(--font-mono);
   font-size: 0.6rem;
   letter-spacing: 0.16em;
   text-transform: uppercase;
@@ -57,7 +58,7 @@
 }
 
 .counter {
-  font-family: var(--font-hyperion);
+  font-family: var(--font-mono);
   font-size: 0.58rem;
   letter-spacing: 0.2em;
   color: var(--fg-dimmer);

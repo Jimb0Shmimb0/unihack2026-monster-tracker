@@ -1,12 +1,11 @@
 'use client'
 
-import { useEffect, useState, useMemo } from 'react'
+import { useEffect, useState } from 'react'
 import dynamic from 'next/dynamic'
 import { drinks } from '@/lib/data'
-import { useSelectedDrink } from '@/lib/DrinkContext'
 import styles from './Hero.module.css'
 
-const MonsterCan = dynamic(() => import('./MonsterCan'), { ssr: false, loading: () => <div style={{ width: '100%', height: '100%', background: '#0a0a0a' }} /> })
+const MonsterCan = dynamic(() => import('./MonsterCan'), { ssr: false })
 
 const stats = [
   { label: 'Products Tracked', value: '15' },
@@ -23,7 +22,6 @@ function getBestDeal(drink: typeof drinks[0]) {
 
 export default function Hero() {
   const [tickerIndex, setTickerIndex] = useState(0)
-  const selectedDrink = useSelectedDrink()
 
   useEffect(() => {
     const id = setInterval(() => {
@@ -32,7 +30,7 @@ export default function Hero() {
     return () => clearInterval(id)
   }, [])
 
-  const tickerDrinks = useMemo(() => [...drinks, ...drinks].slice(tickerIndex, tickerIndex + 6), [tickerIndex])
+  const tickerDrinks = [...drinks, ...drinks].slice(tickerIndex, tickerIndex + 6)
 
   return (
     <section className={styles.hero}>
@@ -47,7 +45,7 @@ export default function Hero() {
           <h1 className={styles.heroTitle}>
             <span className={styles.titleLine1}>Find the Best</span>
             <span className={styles.titleLine2}>
-              Energy Drink <span className={styles.titleAccent}>Prices</span>
+              Energy Drink <span className={styles.titleAccent}>Prices.</span>
             </span>
           </h1>
 
@@ -85,20 +83,6 @@ export default function Hero() {
 
         <div className={styles.heroVisual}>
           <MonsterCan />
-          <div className={styles.flavorOverlay}>
-            <span
-              key={selectedDrink.id}
-              className={styles.flavorName}
-              data-text={selectedDrink.variant}
-            >
-              {selectedDrink.variant}
-            </span>
-            <div className={styles.flavorMeta}>
-              <span className={styles.flavorMetaItem} style={{ color: selectedDrink.accentColor }}>{selectedDrink.caffeineContentMg}mg</span>
-              <span className={styles.flavorMetaItem}>{selectedDrink.calories} cal</span>
-              <span className={styles.flavorMetaItem}>{selectedDrink.sizeOz} oz</span>
-            </div>
-          </div>
         </div>
       </div>
 

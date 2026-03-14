@@ -3,19 +3,16 @@
   --bg-secondary: #111111;
   --bg-card: #0f0f0f;
   --fg: #e8e8e8;
-  --fg-dim: rgba(232, 232, 232, 0.7);
-  --fg-dimmer: rgba(232, 232, 232, 0.4);
+  --fg-dim: rgba(232, 232, 232, 0.5);
+  --fg-dimmer: rgba(232, 232, 232, 0.2);
   --accent: #39d353;
-  --accent-r: 57;
-  --accent-g: 211;
-  --accent-b: 83;
   --accent-dim: rgba(57, 211, 83, 0.15);
   --accent-glow: rgba(57, 211, 83, 0.3);
   --danger: #ff4444;
   --border: rgba(232, 232, 232, 0.08);
   --border-accent: rgba(57, 211, 83, 0.2);
-  --font-display: var(--font-y2k), var(--font-grotesk), 'Arial Black', sans-serif;
-  --font-hyperion: var(--font-hyperion), 'Courier New', monospace;
+  --font-display: var(--font-grotesk), 'Arial Black', sans-serif;
+  --font-mono: var(--font-mono), 'Courier New', monospace;
   --radius: 4px;
 }
 
@@ -35,7 +32,7 @@ html {
 
 body {
   background-color: var(--bg);
-  font-family: var(--font-hyperion);
+  font-family: var(--font-mono);
   overflow-x: hidden;
 }
 
@@ -71,18 +68,6 @@ button {
   background: none;
   font-family: inherit;
 }
-
-/* Typewriter reveal animation */
-@keyframes typewriter {
-  from { clip-path: inset(0 100% 0 0); }
-  to   { clip-path: inset(0 0% 0 0); }
-}
-
-/* MonsterCan border text animations */
-@keyframes mcBorderRight { from { transform: translateX(0); } to { transform: translateX(-50%); } }
-@keyframes mcBorderLeft  { from { transform: translateX(-50%); } to { transform: translateX(0); } }
-@keyframes mcBorderUp    { from { transform: translateY(0); } to { transform: translateY(-50%); } }
-@keyframes mcBorderDown  { from { transform: translateY(-50%); } to { transform: translateY(0); } }
 
 /* Scanline overlay */
 body::after {

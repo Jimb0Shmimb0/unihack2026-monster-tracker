@@ -2,7 +2,6 @@
 
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
-import Image from 'next/image'
 import { navLinks } from '@/lib/data'
 import styles from './Nav.module.css'
 
@@ -12,7 +11,7 @@ export default function Nav() {
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 10)
-    window.addEventListener('scroll', handleScroll, { passive: true })
+    window.addEventListener('scroll', handleScroll)
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
@@ -30,14 +29,9 @@ export default function Nav() {
     <nav className={`${styles.nav} ${scrolled ? styles.scrolled : ''}`}>
       <div className={styles.navInner}>
         <Link href="/" className={styles.logo}>
-          <Image
-            src="/Single Bolt Lightning Skull Image-1.png"
-            alt="VOLT"
-            width={48}
-            height={48}
-            className={styles.logoImg}
-          />
-          <span className={styles.logoText}>VOLT PRICE TRACKER</span>
+          <span className={styles.logoMark}>⚡</span>
+          <span className={styles.logoText}>VOLT</span>
+          <span className={styles.logoSub}>Price Tracker</span>
         </Link>
 
         <ul className={styles.navLinks}>
