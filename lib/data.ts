@@ -394,6 +394,8 @@ export const navLinks = [
   { label: 'Products', href: '/' },
   { label: 'Best Deals', href: '/reportage' },
   { label: 'Price History', href: '/archive' },
+  { label: 'Caffeine Tracker', href: '/tracker' },
+  { label: 'Flavour Map', href: '/flavourmap' },
   { label: 'About', href: '/about' },
 ];
 
