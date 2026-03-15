@@ -385,8 +385,8 @@
 }
 
 .sectionLabel {
-  font-family: var(--font-curseyt), sans-serif;
-  font-size: 3.5rem;
+  font-family: var(--font-chetkiy), sans-serif;
+  font-size: 1.8rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--fg);
@@ -396,6 +396,48 @@
   justify-self: center;
   position: relative;
   z-index: 1;
+  transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+@keyframes labelType {
+  from { opacity: 0; letter-spacing: 0.4em; }
+  to   { opacity: 1; letter-spacing: 0.08em; }
+}
+
+.sectionLabelAnim {
+  font-family: var(--font-chetkiy), sans-serif;
+  font-size: 1.8rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--fg);
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  align-self: center;
+  justify-self: center;
+  position: relative;
+  z-index: 1;
+  opacity: 0;
+  transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+.labelVisible {
+  animation: labelType 1s ease forwards;
+}
+
+.section:hover .sectionLabelAnim {
+  color: var(--accent);
+  text-shadow:
+    0 0 10px var(--accent-glow),
+    0 0 30px var(--accent-glow),
+    0 0 60px var(--accent-dim);
+}
+
+.section:hover .sectionLabel {
+  color: var(--accent);
+  text-shadow:
+    0 0 10px var(--accent-glow),
+    0 0 30px var(--accent-glow),
+    0 0 60px var(--accent-dim);
 }
 
 .sectionContent {
