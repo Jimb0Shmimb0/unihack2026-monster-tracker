@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { Space_Grotesk, Space_Mono } from 'next/font/google'
 import './globals.css'
+import Cursor from '@/components/Cursor'
 
 const spaceGrotesk = Space_Grotesk({
   subsets: ['latin'],
@@ -27,6 +28,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${spaceGrotesk.variable} ${spaceMono.variable}`}>
+      <Cursor />
         {children}
       </body>
     </html>

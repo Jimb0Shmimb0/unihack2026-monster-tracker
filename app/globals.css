@@ -25,7 +25,7 @@
   box-sizing: border-box;
 }
 
-/* Hide system cursor on pointer devices - CustomCursor component replaces it */
+/* Hide system cursor on pointer devices - Cursor component replaces it */
 @media (pointer: fine) {
   *, *::before, *::after {
     cursor: none !important;
