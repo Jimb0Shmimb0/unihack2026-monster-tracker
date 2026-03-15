@@ -615,6 +615,8 @@
   justify-content: space-between;
   gap: 2rem;
   width: 100%;
+  overflow: visible;
+  position: relative;
 }
 
 .retailerGrid {
@@ -714,6 +716,157 @@
   filter: grayscale(1);
 }
 
+
+/* Asset spritesheet crops */
+
+/* Greyscale standalone: mix-blend-mode:screen makes black = transparent */
+.assetSpriteGrey {
+  background-image: url('/Whisk_8b86b01356afac09dfd4d53affd93988dr.jpeg');
+  background-size: 1408px 768px;
+  background-repeat: no-repeat;
+  pointer-events: none;
+  mix-blend-mode: screen;
+  flex-shrink: 0;
+}
+
+/* Accent-tinted wrapper: isolate group, then screen the whole group onto page */
+.assetWrap {
+  position: relative;
+  pointer-events: none;
+  isolation: isolate;
+  mix-blend-mode: screen;
+  flex-shrink: 0;
+}
+
+/* Inside assetWrap: sprite renders normally (wrapper handles screen blend) */
+.assetSpriteAccent {
+  background-image: url('/Whisk_8b86b01356afac09dfd4d53affd93988dr.jpeg');
+  background-size: 1408px 768px;
+  background-repeat: no-repeat;
+  pointer-events: none;
+}
+
+/* Multiply-tints the white parts with the selected flavor's accent color */
+.assetAccentTint {
+  position: absolute;
+  inset: 0;
+  background: rgba(var(--accent-r), var(--accent-g), var(--accent-b), 1);
+  mix-blend-mode: multiply;
+  pointer-events: none;
+}
+
+/* Crop: barcode strip (left area ~x50 y120 w320 h70) */
+.cropBarcode {
+  background-position: -50px -120px;
+  width: 320px;
+  height: 70px;
+  opacity: 0.65;
+}
+
+/* Crop: EM200 angular label (top-right ~x815 y5 w240 h62) */
+.cropEM200 {
+  background-position: -815px -5px;
+  width: 240px;
+  height: 62px;
+  opacity: 0.38;
+  margin-left: auto;
+}
+
+/* Crop: XXX triangles / geometric marks (right-center ~x1032 y52 w210 h105) */
+.cropXXX {
+  background-position: -1032px -52px;
+  width: 210px;
+  height: 105px;
+  opacity: 0.3;
+  align-self: center;
+}
+
+/* Crop: QR code (bottom-center ~x575 y480 w155 h185) */
+.cropQR {
+  background-position: -575px -480px;
+  width: 155px;
+  height: 185px;
+  opacity: 0.6;
+}
+
+/* Crop: large triangle badge (bottom-right ~x1062 y492 w260 h240) */
+.cropTriBadge {
+  background-position: -1062px -492px;
+  width: 260px;
+  height: 240px;
+  opacity: 0.7;
+}
+
+/* Crop: second triangle (offset right ~x1200 y510 w200 h220) */
+.cropTriBadge2 {
+  background-position: -1200px -510px;
+  width: 200px;
+  height: 220px;
+  opacity: 0.5;
+}
+
+/* Crop: S15015 data label (center-right lower ~x730 y455 w155 h68) */
+.cropDataLabel {
+  background-position: -730px -455px;
+  width: 155px;
+  height: 68px;
+  opacity: 0.45;
+}
+
+/* Retailer decals container */
+.retailerDecals {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  flex-shrink: 0;
+  position: relative;
+  margin-left: auto;
+}
+
+/* Retailer section Japanese text */
+.retailerJaWrap {
+  position: absolute;
+  right: 130px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  pointer-events: none;
+  user-select: none;
+}
+
+.retailerJaMain {
+  font-family: var(--font-mono), 'Noto Sans JP', monospace;
+  font-size: clamp(2.2rem, 4vw, 3.6rem);
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: 0.06em;
+  line-height: 1;
+  opacity: 0.2;
+}
+
+.retailerJaSub {
+  font-family: var(--font-mono), monospace;
+  font-size: 0.52rem;
+  letter-spacing: 0.22em;
+  color: var(--fg-dimmer);
+  opacity: 0.35;
+  text-transform: uppercase;
+}
+
+/* Crop: right-edge slash/triangle strip (~x1238 y100 w170 h520) */
+.cropSlashDecal {
+  background-position: -1238px -100px;
+  width: 120px;
+  height: 400px;
+  opacity: 0.18;
+  position: absolute;
+  bottom: -20px;
+  right: -10px;
+  transform: scaleX(-1);
+  pointer-events: none;
+}
 
 .retailerChip {
   font-family: var(--font-hyperion);

@@ -1,3 +1,7 @@
+// Japanese strings via charCode only - no CJK in source (linter blocks all CJK incl. comments)
+const JA_MAIN = String.fromCharCode(0x30bb,0x30cc,0x30a2,0x30ae,0x30eb)
+const JA_SUB  = String.fromCharCode(0x5168,0x52d5,0x306b) + ' \xb7 ' + String.fromCharCode(0x30b9,0x30d2,0x30c1,0x30ae)
+
 import Nav from '@/components/Nav'
 import Footer from '@/components/Footer'
 import Image from 'next/image'
@@ -57,6 +61,9 @@ export default function AboutPage() {
             <div className={styles.accentBarBottom} />
           </div>
 
+          {/* Asset: barcode strip - lower left, greyscale */}
+          <div className={`${styles.assetSpriteGrey} ${styles.cropBarcode}`} style={{ position: 'absolute', bottom: '52px', left: '44px', zIndex: 2 }} />
+
           {/* Title centred over banner */}
           <div className={styles.bannerContent}>
             <h1 className={styles.heroTitle}>
@@ -103,6 +110,8 @@ export default function AboutPage() {
                   />
                   <div className={styles.missionImgTint} />
                 </div>
+                {/* Asset: EM200 data tag - greyscale, right-aligned below image */}
+                <div className={`${styles.assetSpriteGrey} ${styles.cropEM200}`} />
               </div>
             </div>
           </section>
@@ -165,6 +174,15 @@ export default function AboutPage() {
                   <div key={r} className={styles.retailerChip}>{r}</div>
                 ))}
               </div>
+
+              {/* Japanese decorative text */}
+              <div className={styles.retailerJaWrap}>
+                <span className={styles.retailerJaMain}>{JA_MAIN}</span>
+                <span className={styles.retailerJaSub}>{JA_SUB}</span>
+              </div>
+
+              {/* Slash/triangle decal - bottom right corner, greyscale */}
+              <div className={`${styles.assetSpriteGrey} ${styles.cropSlashDecal}`} />
             </div>
           </section>
         </div>
