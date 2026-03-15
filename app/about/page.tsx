@@ -75,23 +75,38 @@ export default function AboutPage() {
                 <div className={styles.sectionBarTop} />
                 <div className={styles.sectionBarBottom} />
               </div>
-              <p className={styles.prose}>
-                VOLT is a real-time energy drink price comparison platform focused on the Monster Energy
-                product line. We track prices across major retailers - Amazon, Walmart, Target, Costco,
-                7-Eleven, and GNC - so you always know where to get the best deal.
-              </p>
-              <p className={styles.prose}>
-                Our platform continuously compares caffeine content, calories, and price per serving
-                across all variants, surfacing the lowest available price instantly. Whether buying
-                in bulk or picking up a single can, VOLT helps you make the smartest choice.
-              </p>
-              <p className={styles.prose}>
-                VOLT is not affiliated with Monster Energy Company or any of the retailers listed.
-                All prices are sourced from publicly available retail listings and are for informational
-                purposes only.
-              </p>
+              <div className={styles.missionInner}>
+                <div className={styles.missionText}>
+                  <p className={styles.prose}>
+                    VOLT is a real-time energy drink price comparison platform focused on the Monster Energy
+                    product line. We track prices across major retailers - Amazon, Walmart, Target, Costco,
+                    7-Eleven, and GNC - so you always know where to get the best deal.
+                  </p>
+                  <p className={styles.prose}>
+                    Our platform continuously compares caffeine content, calories, and price per serving
+                    across all variants, surfacing the lowest available price instantly. Whether buying
+                    in bulk or picking up a single can, VOLT helps you make the smartest choice.
+                  </p>
+                  <p className={styles.prose}>
+                    VOLT is not affiliated with Monster Energy Company or any of the retailers listed.
+                    All prices are sourced from publicly available retail listings and are for informational
+                    purposes only.
+                  </p>
+                </div>
+                <div className={styles.missionImgWrap}>
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src="/Whisk_d3fe1cd3208b84abaef440e4a4d82f82eg.png"
+                    alt=""
+                    className={styles.missionImg}
+                  />
+                  <div className={styles.missionImgTint} />
+                </div>
+              </div>
             </div>
           </section>
+
+          <div className={styles.divider}><span className={styles.dividerText}>{borderH}</span></div>
 
           {/* Features */}
           <section className={styles.section}>
@@ -115,9 +130,30 @@ export default function AboutPage() {
                   alt=""
                   className={styles.globeImg}
                 />
+                <div className={styles.globeFrame}>
+                  <div className={styles.gfTop} />
+                  <div className={styles.gfBottom} />
+                  <div className={styles.gfLeft} />
+                  <div className={styles.gfRight} />
+                  <div className={styles.gfDotTL} /><div className={styles.gfDotTR} />
+                  <div className={styles.gfDotBL} /><div className={styles.gfDotBR} />
+                </div>
+                <div className={styles.globeFrameOuter}>
+                  <div className={styles.gfTop} />
+                  <div className={styles.gfBottom} />
+                  <div className={styles.gfLeft} />
+                  <div className={styles.gfRight} />
+                  <div className={styles.frameDots}>
+                    <span className={styles.dotFilled} />
+                    <span className={styles.dotEmpty} />
+                    <span className={styles.dotEmpty} />
+                  </div>
+                </div>
               </div>
             </div>
           </section>
+
+          <div className={styles.divider}><span className={styles.dividerTextReverse}>{borderH}</span></div>
 
           {/* Retailers */}
           <section className={styles.section}>
