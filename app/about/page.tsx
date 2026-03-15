@@ -1,6 +1,7 @@
 import Nav from '@/components/Nav'
 import Footer from '@/components/Footer'
 import Image from 'next/image'
+import AnimatedSectionLabel from '@/components/AnimatedSectionLabel'
 import styles from './about.module.css'
 
 export const metadata = {
@@ -69,7 +70,7 @@ export default function AboutPage() {
         <div className={styles.body}>
           {/* Mission */}
           <section className={styles.section}>
-            <div className={styles.sectionLabel}>Mission</div>
+            <AnimatedSectionLabel>Mission</AnimatedSectionLabel>
             <div className={styles.sectionContent}>
               <div className={styles.sectionBars}>
                 <div className={styles.sectionBarTop} />
@@ -110,7 +111,7 @@ export default function AboutPage() {
 
           {/* Features */}
           <section className={styles.section}>
-            <div className={styles.sectionLabel}>Features</div>
+            <AnimatedSectionLabel>Features</AnimatedSectionLabel>
             <div className={styles.featuresRow}>
               <div className={styles.featuresGrid}>
                 {features.map((f, i) => (
@@ -157,7 +158,7 @@ export default function AboutPage() {
 
           {/* Retailers */}
           <section className={styles.section}>
-            <div className={styles.sectionLabel}>Retailers Tracked</div>
+            <AnimatedSectionLabel>Retailers Tracked</AnimatedSectionLabel>
             <div className={styles.retailerRow}>
               <div className={styles.retailerGrid}>
                 {retailers.map(r => (
