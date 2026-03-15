@@ -1,16 +1,22 @@
+/* ── Layout ── */
 .main {
   padding: 8rem 0 6rem;
   min-height: 100vh;
   font-family: var(--font-display);
 }
 
+/* ── Header ── */
 .header {
-  display: flex;
-  align-items: baseline;
-  gap: 1.5rem;
-  margin-bottom: 4rem;
+  padding: 0 2.5rem 3rem;
   border-bottom: 1px solid var(--border);
-  padding: 0 2.5rem 2rem;
+  margin-bottom: 4rem;
+}
+
+.headerTop {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
 }
 
 .num {
@@ -20,44 +26,452 @@
   letter-spacing: 0.1em;
 }
 
+.liveChip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-family: var(--font-mono);
+  font-size: 0.55rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  color: var(--accent);
+  border: 1px solid var(--border-accent);
+  border-radius: 100px;
+  padding: 0.2rem 0.6rem;
+}
+
+.liveDot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--accent);
+  animation: pulse 1.8s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(0.7); }
+}
+
 .title {
   font-family: var(--font-display);
-  font-size: clamp(3rem, 8vw, 7rem);
-  font-weight: 300;
-  letter-spacing: -0.03em;
+  font-size: clamp(3.5rem, 9vw, 8rem);
+  font-weight: 700;
+  letter-spacing: -0.04em;
   color: var(--fg);
   line-height: 0.9;
+  margin-bottom: 1rem;
 }
 
-.grid {
-  columns: 3;
-  column-gap: 1px;
+.headerSub {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--fg-dim);
+  letter-spacing: 0.04em;
+  margin-bottom: 2.5rem;
+}
+
+.statsRow {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  flex-wrap: wrap;
+}
+
+.stat {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  padding: 0.75rem 2rem 0.75rem 0;
+}
+
+.statVal {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--fg);
+  letter-spacing: -0.02em;
+  line-height: 1;
+}
+
+.statLabel {
+  font-family: var(--font-mono);
+  font-size: 0.55rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--fg-dimmer);
+}
+
+.statDivider {
+  width: 1px;
+  height: 36px;
+  background: var(--border);
+  margin: 0 2rem 0 0;
+}
+
+/* ── Podium ── */
+.podium {
+  display: grid;
+  grid-template-columns: 1fr 1.15fr 1fr;
   gap: 1px;
+  margin: 0 0 1px;
+  background: var(--border);
 }
 
-@media (max-width: 900px) {
-  .grid { columns: 2; }
+@media (max-width: 700px) {
+  .podium { grid-template-columns: 1fr; }
 }
 
-@media (max-width: 500px) {
-  .grid { columns: 1; }
-}
-
-.imgWrap {
+.podiumCard {
   position: relative;
-  break-inside: avoid;
-  aspect-ratio: 4/5;
+  background: var(--bg-card);
+  padding: 2.5rem 2rem 2rem;
   overflow: hidden;
-  margin-bottom: 1px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  transition: background 0.2s;
 }
 
-.img {
-  object-fit: cover;
-  filter: grayscale(20%);
-  transition: transform 0.5s ease, filter 0.4s ease;
+.podiumCard:hover {
+  background: #111;
 }
 
-.imgWrap:hover .img {
-  transform: scale(1.04);
-  filter: grayscale(0%);
+.podiumCardChamp {
+  padding-top: 3rem;
+}
+
+.champGlow {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.podiumRank {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.rankNum {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--fg-dimmer);
+  letter-spacing: 0.1em;
+}
+
+.champBadge {
+  font-family: var(--font-mono);
+  font-size: 0.5rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--accent);
+  border: 1px solid var(--border-accent);
+  padding: 0.2rem 0.5rem;
+  border-radius: 2px;
+  background: var(--accent-dim);
+}
+
+.podiumImgWrap {
+  position: relative;
+  width: 80px;
+  height: 80px;
+  margin: 0.5rem 0;
+}
+
+.podiumCardChamp .podiumImgWrap {
+  width: 100px;
+  height: 100px;
+}
+
+.podiumImg {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 4px 20px rgba(0,0,0,0.6));
+  position: relative;
+  z-index: 1;
+}
+
+.podiumImgGlow {
+  position: absolute;
+  inset: -20px;
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.podiumPrice {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 5vw, 3.2rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1;
+  display: flex;
+  align-items: baseline;
+  gap: 0.3rem;
+}
+
+.podiumCardChamp .podiumPrice {
+  font-size: clamp(2.5rem, 6vw, 4rem);
+}
+
+.podiumPriceLabel {
+  font-size: 0.65rem;
+  font-family: var(--font-mono);
+  color: var(--fg-dim);
+  font-weight: 400;
+  letter-spacing: 0.06em;
+}
+
+.podiumName {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--fg);
+  letter-spacing: -0.01em;
+}
+
+.podiumCardChamp .podiumName {
+  font-size: 1.15rem;
+}
+
+.podiumVariant {
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  color: var(--fg-dim);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.podiumRetailer {
+  margin-top: 0.25rem;
+}
+
+.retailerPill {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 0.58rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  border: 1px solid;
+  border-radius: 100px;
+  padding: 0.2rem 0.65rem;
+}
+
+.podiumTags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-top: 0.25rem;
+}
+
+.tag {
+  font-family: var(--font-mono);
+  font-size: 0.52rem;
+  letter-spacing: 0.08em;
+  color: var(--fg-dim);
+  background: rgba(255,255,255,0.04);
+  border: 1px solid var(--border);
+  border-radius: 2px;
+  padding: 0.15rem 0.5rem;
+}
+
+.podiumMeta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: auto;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border);
+}
+
+.metaItem {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.metaKey {
+  font-family: var(--font-mono);
+  font-size: 0.48rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--fg-dimmer);
+}
+
+.metaVal {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--fg);
+  font-weight: 600;
+}
+
+.savingsBadge {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  font-weight: 700;
+  color: var(--accent);
+  letter-spacing: 0.04em;
+}
+
+/* ── Table ── */
+.tableSection {
+  background: var(--bg-card);
+  border-top: 1px solid var(--border);
+}
+
+.tableHeader {
+  display: grid;
+  grid-template-columns: 48px 1fr 110px 80px 60px 70px 70px 90px;
+  gap: 0;
+  padding: 0.6rem 1.5rem;
+  border-bottom: 1px solid var(--border);
+  font-family: var(--font-mono);
+  font-size: 0.5rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--fg-dimmer);
+  align-items: center;
+}
+
+@media (max-width: 800px) {
+  .tableHeader { display: none; }
+}
+
+.tableRow {
+  display: grid;
+  grid-template-columns: 48px 1fr 110px 80px 60px 70px 70px 90px;
+  gap: 0;
+  padding: 0.75rem 1.5rem;
+  border-bottom: 1px solid var(--border);
+  align-items: center;
+  transition: background 0.15s;
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+}
+
+.tableRow:hover {
+  background: rgba(255,255,255,0.025);
+}
+
+@media (max-width: 800px) {
+  .tableRow {
+    grid-template-columns: 40px 1fr 80px;
+    grid-template-rows: auto auto;
+  }
+  .tableRetailer, .tableCaffeine, .tableCell, .tableSavings { display: none; }
+}
+
+.tableRank {
+  display: flex;
+  align-items: center;
+}
+
+.rankMono {
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  color: var(--fg-dimmer);
+  letter-spacing: 0.05em;
+}
+
+.tableProduct {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.tableThumb {
+  width: 36px;
+  height: 36px;
+  object-fit: contain;
+  flex-shrink: 0;
+  filter: drop-shadow(0 2px 6px rgba(0,0,0,0.5));
+}
+
+.tableProductInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.tableProductName {
+  font-family: var(--font-display);
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--fg);
+  letter-spacing: -0.01em;
+}
+
+.tableProductVariant {
+  font-family: var(--font-mono);
+  font-size: 0.52rem;
+  color: var(--fg-dimmer);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.tableRetailer {
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  color: var(--fg-dim);
+  letter-spacing: 0.04em;
+}
+
+.tableCaffeine {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+
+.tableCell {
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  color: var(--fg-dim);
+  letter-spacing: 0.02em;
+}
+
+.tableSavings {
+  display: flex;
+  align-items: center;
+}
+
+.savingsPill {
+  font-family: var(--font-mono);
+  font-size: 0.58rem;
+  font-weight: 700;
+  color: var(--accent);
+  background: var(--accent-dim);
+  border: 1px solid var(--border-accent);
+  border-radius: 100px;
+  padding: 0.15rem 0.5rem;
+  letter-spacing: 0.04em;
+}
+
+.thPrice {
+  text-align: right;
+}
+
+.tablePrice {
+  font-family: var(--font-display);
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  text-align: right;
+}
+
+/* ── Disclaimer ── */
+.disclaimer {
+  font-family: var(--font-mono);
+  font-size: 0.55rem;
+  letter-spacing: 0.06em;
+  color: var(--fg-dimmer);
+  padding: 2rem 2.5rem;
+  border-top: 1px solid var(--border);
+  line-height: 1.7;
 }
