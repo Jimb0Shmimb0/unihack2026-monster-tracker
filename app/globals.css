@@ -25,6 +25,13 @@
   box-sizing: border-box;
 }
 
+/* Hide system cursor on pointer devices - CustomCursor component replaces it */
+@media (pointer: fine) {
+  *, *::before, *::after {
+    cursor: none !important;
+  }
+}
+
 html {
   background-color: var(--bg);
   color: var(--fg);

@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { Space_Grotesk, Space_Mono } from 'next/font/google'
 import localFont from 'next/font/local'
 import { DrinkProvider } from '@/lib/DrinkContext'
+import CustomCursor from '@/components/CustomCursor'
 import './globals.css'
 
 const spaceGrotesk = Space_Grotesk({
@@ -88,6 +89,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${spaceGrotesk.variable} ${spaceMono.variable} ${y2kBrutalism.variable} ${neoblast.variable} ${hyperion.variable} ${maskdown.variable} ${sabersong.variable} ${pickyside.variable} ${chetkiy.variable} ${curseyt.variable}`}>
         <DrinkProvider>
+          <CustomCursor />
           {children}
         </DrinkProvider>
       </body>
