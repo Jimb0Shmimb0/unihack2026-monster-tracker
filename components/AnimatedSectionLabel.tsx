@@ -16,7 +16,7 @@ export default function AnimatedSectionLabel({ children }: { children: string })
           observer.disconnect()
         }
       },
-      { threshold: 0.1, rootMargin: '0px 0px -50px 0px' }
+      { threshold: 0.05 }
     )
     observer.observe(el)
     return () => observer.disconnect()
