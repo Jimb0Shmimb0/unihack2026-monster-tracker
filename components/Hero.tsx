@@ -45,7 +45,7 @@ export default function Hero() {
           <h1 className={styles.heroTitle}>
             <span className={styles.titleLine1}>Find Your Energy,</span>
             <span className={styles.titleLine2}>
-              Monitor Your Health <span className={styles.titleAccent}>& Find the Best Prices.</span>
+              Health,<span className={styles.titleAccent}> the Best Prices.</span>
             </span>
           </h1>
 
