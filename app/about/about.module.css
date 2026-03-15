@@ -334,6 +334,40 @@
   border-bottom: none;
 }
 
+.divider {
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 22px;
+  border-top: 1px solid var(--border-accent);
+  border-bottom: 1px solid var(--border-accent);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  background: rgba(0,0,0,0.88);
+}
+
+.dividerText {
+  display: inline-block;
+  white-space: nowrap;
+  font-family: var(--font-y2k), monospace;
+  font-size: 0.45rem;
+  letter-spacing: 0.08em;
+  color: var(--accent);
+  animation: mcBorderRight 55s linear infinite;
+}
+
+.dividerTextReverse {
+  display: inline-block;
+  white-space: nowrap;
+  font-family: var(--font-y2k), monospace;
+  font-size: 0.45rem;
+  letter-spacing: 0.08em;
+  color: var(--accent);
+  animation: mcBorderLeft 55s linear infinite;
+}
+
 .body::before {
   content: '';
   position: absolute;
@@ -394,6 +428,41 @@
   box-shadow: 0 0 6px var(--accent-dim);
 }
 
+.missionInner {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  width: 100%;
+}
+
+.missionText {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 2rem;
+}
+
+.missionImgWrap {
+  position: relative;
+  width: 100%;
+  isolation: isolate;
+}
+
+.missionImg {
+  width: 100%;
+  height: 120px;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+.missionImgTint {
+  position: absolute;
+  inset: 0;
+  background: rgba(var(--accent-r), var(--accent-g), var(--accent-b), 1);
+  mix-blend-mode: multiply;
+  pointer-events: none;
+}
+
 .prose {
   font-family: var(--font-hyperion);
   font-size: 0.72rem;
@@ -417,6 +486,7 @@
   align-items: center;
   gap: 2rem;
   width: 100%;
+  overflow: visible;
 }
 
 .featuresGrid {
@@ -504,10 +574,86 @@
 .globeWrap {
   position: relative;
   flex-shrink: 0;
-  width: 380px;
-  height: 380px;
+  width: 480px;
+  height: 480px;
   margin-right: 0;
+  align-self: center;
+  overflow: visible;
 }
+
+/* Globe frame */
+.globeFrame {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 3;
+}
+
+.globeFrameOuter {
+  position: absolute;
+  inset: -12px;
+  pointer-events: none;
+  z-index: 3;
+}
+
+.gfTop, .gfBottom {
+  position: absolute;
+  left: 0; right: 0;
+  height: 2px;
+  background: var(--accent);
+  box-shadow: 0 0 8px var(--accent-glow);
+}
+.gfTop    { top: 0;    }
+.gfBottom { bottom: 0; }
+
+.gfLeft, .gfRight {
+  position: absolute;
+  top: 2px; bottom: 2px;
+  width: 2px;
+  background: var(--accent);
+  box-shadow: 0 0 8px var(--accent-glow);
+}
+.gfLeft  { left: 0;  }
+.gfRight { right: 0; }
+
+.frameDots {
+  position: absolute;
+  top: 16px;
+  right: -24px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  align-items: center;
+}
+
+.dotFilled {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 6px var(--accent-glow);
+  flex-shrink: 0;
+}
+
+.dotEmpty {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  border: 1.5px solid var(--accent);
+  box-shadow: 0 0 4px var(--accent-dim);
+  flex-shrink: 0;
+}
+
+.gfDotTL, .gfDotTR, .gfDotBL, .gfDotBR {
+  position: absolute;
+  width: 5px; height: 5px;
+  background: var(--accent);
+  box-shadow: 0 0 6px var(--accent-glow), 0 0 12px var(--accent-glow);
+}
+.gfDotTL { top: 8px;    left: 8px;  }
+.gfDotTR { top: 8px;    right: 8px; }
+.gfDotBL { bottom: 8px; left: 8px;  }
+.gfDotBR { bottom: 8px; right: 8px; }
 
 .globeImg {
   width: 100%;
