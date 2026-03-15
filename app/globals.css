@@ -14,7 +14,7 @@
   --danger: #ff4444;
   --border: rgba(232, 232, 232, 0.08);
   --border-accent: rgba(57, 211, 83, 0.2);
-  --font-display: var(--font-y2k), var(--font-grotesk), 'Arial Black', sans-serif;
+  --font-display: var(--font-y2k, 'Arial Black', sans-serif);
   --font-hyperion: var(--font-hyperion), 'Courier New', monospace;
   --radius: 4px;
 }
