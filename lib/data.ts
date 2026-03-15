@@ -65,7 +65,7 @@ export const drinks: EnergyDrink[] = [
       { retailer: 'Woolworths',       pricePerCan: 5.50, packSize: 1,  totalPrice: 5.50,  inStock: true,  url: 'https://www.woolworths.com.au/shop/productdetails/329812' },
       { retailer: 'Coles',            pricePerCan: 5.50, packSize: 1,  totalPrice: 5.50,  inStock: true,  url: 'https://www.coles.com.au/product/monster-energy-drink-can-green-500ml-2787136' },
       { retailer: 'Costco Australia', pricePerCan: 1.69, packSize: 24, totalPrice: 40.56, inStock: true,  url: 'https://www.costcobusinessdelivery.com/monster-energy-drink-original-16-fl-oz-24-ct.product.10192301.html' },
-      { retailer: '7-Eleven',         pricePerCan: 5.99, packSize: 1,  totalPrice: 5.99,  inStock: true,  url: '#' },
+      { retailer: '7-Eleven',         pricePerCan: 5.99, packSize: 1,  totalPrice: 5.99,  inStock: true,  url: 'https://7eleven.tipple.com.au/product/monster-355ml-green?packSize=1' },
     ],
   },
   {
@@ -83,9 +83,9 @@ export const drinks: EnergyDrink[] = [
     image: 'https://snackje.com/cdn/shop/files/Monster-Juiced-Aussie-Lemonade-500ml.png?v=1759761051',
     retailers: [
       { retailer: 'Woolworths',       pricePerCan: 5.50, packSize: 1,  totalPrice: 5.50,  inStock: true,  url: 'https://www.woolworths.com.au/shop/productdetails/6024547' },
-      { retailer: 'Coles',            pricePerCan: 5.50, packSize: 1,  totalPrice: 5.50,  inStock: true,  url: '#' },
+      { retailer: 'Coles',            pricePerCan: 5.50, packSize: 1,  totalPrice: 5.50,  inStock: true,  url: 'https://www.coles.com.au/product/monster-energy-aussie-lemonade-can-500ml-1151012?cid=col_cpc_Generic%7CColesSupermarkets%7CPLA%7CBeverage%7CAustralia%7CBroad&s_kwcid=AL!12693!3!682651538287!!!g!412033261645!&gclsrc=aw.ds&gad_source=1&gad_campaignid=20813101625&gbraid=0AAAAADzlvJcjwluYbZXEyBACLnQpX_dRf' },
       { retailer: 'Costco Australia', pricePerCan: 1.80, packSize: 24, totalPrice: 43.20, inStock: false, url: '#' },
-      { retailer: '7-Eleven',         pricePerCan: 5.99, packSize: 1,  totalPrice: 5.99,  inStock: true,  url: '#' },
+      { retailer: '7-Eleven',         pricePerCan: 5.99, packSize: 1,  totalPrice: 5.99,  inStock: true,  url: 'https://7eleven.tipple.com.au/product/monster-aussie-lemonade-500ml?packSize=1' },
     ],
   },
   {
@@ -105,7 +105,7 @@ export const drinks: EnergyDrink[] = [
       { retailer: 'Woolworths',       pricePerCan: 4.50, packSize: 1,  totalPrice: 4.50,  inStock: true,  url: 'https://www.woolworths.com.au/shop/productdetails/317864' },
       { retailer: 'Coles',            pricePerCan: 4.50, packSize: 1,  totalPrice: 4.50,  inStock: true,  url: 'https://www.coles.com.au/product/monster-java-iced-coffee-can-java-moca-305ml-7071540' },
       { retailer: 'Costco Australia', pricePerCan: 1.92, packSize: 24, totalPrice: 46.08, inStock: true,  url: 'https://www.costcobusinessdelivery.com/monster-java-energy-drink-loca-moca-15-fl-oz-12-ct.product.11497600.html' },
-      { retailer: '7-Eleven',         pricePerCan: 4.99, packSize: 1,  totalPrice: 4.99,  inStock: true,  url: '#' },
+      { retailer: '7-Eleven',         pricePerCan: 4.99, packSize: 1,  totalPrice: 4.99,  inStock: true,  url: 'https://7eleven.tipple.com.au/product/monster-mango-loco-500ml?packSize=1' },
     ],
   },
   {
@@ -145,7 +145,7 @@ export const drinks: EnergyDrink[] = [
       { retailer: 'Woolworths',       pricePerCan: 5.50, packSize: 1,  totalPrice: 5.50,  inStock: true,  url: 'https://www.woolworths.com.au/shop/productdetails/698612' },
       { retailer: 'Coles',            pricePerCan: 5.50, packSize: 1,  totalPrice: 5.50,  inStock: true,  url: 'https://www.coles.com.au/product/monster-energy-mango-loco-can-500ml-3290778' },
       { retailer: 'Costco Australia', pricePerCan: 1.80, packSize: 24, totalPrice: 43.20, inStock: true,  url: 'https://www.costcobusinessdelivery.com/monster-juice-energy-drink-mango-loco-16-fl-oz-24-ct.product.100328828.html' },
-      { retailer: '7-Eleven',         pricePerCan: 5.99, packSize: 1,  totalPrice: 5.99,  inStock: true,  url: '#' },
+      { retailer: '7-Eleven',         pricePerCan: 5.99, packSize: 1,  totalPrice: 5.99,  inStock: true,  url: 'https://7eleven.tipple.com.au/product/monster-mango-loco-500ml?packSize=1' },
     ],
   },
   {
@@ -163,9 +163,9 @@ export const drinks: EnergyDrink[] = [
     image: 'https://www.bestwaywholesale.co.uk/img/products/1000/0/5056784900420.jpg',
     retailers: [
       { retailer: 'Woolworths',       pricePerCan: 5.50, packSize: 1,  totalPrice: 5.50,  inStock: true,  url: 'https://www.woolworths.com.au/shop/productdetails/6059029' },
-      { retailer: 'Coles',            pricePerCan: 5.50, packSize: 1,  totalPrice: 5.50,  inStock: true,  url: '#' },
+      { retailer: 'Coles',            pricePerCan: 5.50, packSize: 1,  totalPrice: 5.50,  inStock: true,  url: 'https://www.coles.com.au/product/monster-rio-punch-energy-drink-can-500ml-1640992' },
       { retailer: 'Costco Australia', pricePerCan: 1.80, packSize: 24, totalPrice: 43.20, inStock: false, url: '#' },
-      { retailer: '7-Eleven',         pricePerCan: 5.99, packSize: 1,  totalPrice: 5.99,  inStock: true,  url: '#' },
+      { retailer: '7-Eleven',         pricePerCan: 5.99, packSize: 1,  totalPrice: 5.99,  inStock: true,  url: 'https://7eleven.tipple.com.au/product/monster-rio-punch-500ml?packSize=1' },
     ],
   },
   {
@@ -184,8 +184,8 @@ export const drinks: EnergyDrink[] = [
     retailers: [
       { retailer: 'Woolworths',       pricePerCan: 5.50, packSize: 1,  totalPrice: 5.50,  inStock: true,  url: 'https://www.woolworths.com.au/shop/productdetails/803888' },
       { retailer: 'Coles',            pricePerCan: 5.50, packSize: 1,  totalPrice: 5.50,  inStock: true,  url: 'https://www.coles.com.au/product/monster-pipeline-punch-can-500ml-3511469' },
-      { retailer: 'Costco Australia', pricePerCan: 1.80, packSize: 24, totalPrice: 43.20, inStock: false, url: '#' },
-      { retailer: '7-Eleven',         pricePerCan: 5.99, packSize: 1,  totalPrice: 5.99,  inStock: true,  url: '#' },
+      { retailer: 'Costco Australia', pricePerCan: 1.80, packSize: 24, totalPrice: 43.20, inStock: false, url: 'https://www.costcobusinessdelivery.com/monster-juice-energy-drink%2C-pipeline-punch%2C-16-oz%2C-24-ct.product.100278911.html' },
+      { retailer: '7-Eleven',         pricePerCan: 5.99, packSize: 1,  totalPrice: 5.99,  inStock: true,  url: 'https://7eleven.tipple.com.au/product/monster-500ml-pipeline-punch' },
     ],
   },
   {
@@ -205,7 +205,7 @@ export const drinks: EnergyDrink[] = [
       { retailer: 'Woolworths',       pricePerCan: 5.50, packSize: 1,  totalPrice: 5.50,  inStock: true,  url: 'https://www.woolworths.com.au/shop/productdetails/174492' },
       { retailer: 'Coles',            pricePerCan: 5.50, packSize: 1,  totalPrice: 5.50,  inStock: true,  url: 'https://www.coles.com.au/product/monster-ultra-fiesta-mango-flavour-energy-drink-can-500ml-4402516' },
       { retailer: 'Costco Australia', pricePerCan: 1.75, packSize: 24, totalPrice: 42.00, inStock: true,  url: 'https://www.costcobusinessdelivery.com/monster-energy-drink-zero-sugar-ultra-fiesta-16-fl-oz-24-ct.product.100371843.html' },
-      { retailer: '7-Eleven',         pricePerCan: 5.99, packSize: 1,  totalPrice: 5.99,  inStock: true,  url: '#' },
+      { retailer: '7-Eleven',         pricePerCan: 5.99, packSize: 1,  totalPrice: 5.99,  inStock: true,  url: 'https://7eleven.tipple.com.au/product/monster-ultra-fiesta-500ml?packSize=1' },
     ],
   },
   {
@@ -224,8 +224,8 @@ export const drinks: EnergyDrink[] = [
     retailers: [
       { retailer: 'Woolworths',       pricePerCan: 5.50, packSize: 1,  totalPrice: 5.50,  inStock: true,  url: 'https://www.woolworths.com.au/shop/productdetails/220971' },
       { retailer: 'Coles',            pricePerCan: 5.50, packSize: 1,  totalPrice: 5.50,  inStock: true,  url: 'https://www.coles.com.au/product/monster-energy-can-drink-ultra-gold-500ml-5155220' },
-      { retailer: 'Costco Australia', pricePerCan: 1.72, packSize: 24, totalPrice: 41.28, inStock: true,  url: '#' },
-      { retailer: '7-Eleven',         pricePerCan: 5.99, packSize: 1,  totalPrice: 5.99,  inStock: true,  url: '#' },
+      { retailer: 'Costco Australia', pricePerCan: 1.72, packSize: 24, totalPrice: 41.28, inStock: true,  url: 'https://7eleven.tipple.com.au/product/monster-500ml-ultra-peachy-keen' },
+      { retailer: '7-Eleven',         pricePerCan: 5.99, packSize: 1,  totalPrice: 5.99,  inStock: true,  url: 'https://7eleven.tipple.com.au/product/monster-ultra-gold-500ml?packSize=1' },
     ],
   },
   {
@@ -245,7 +245,7 @@ export const drinks: EnergyDrink[] = [
       { retailer: 'Woolworths',       pricePerCan: 5.50, packSize: 1,  totalPrice: 5.50,  inStock: true,  url: 'https://www.woolworths.com.au/shop/productdetails/391929' },
       { retailer: 'Coles',            pricePerCan: 5.50, packSize: 1,  totalPrice: 5.50,  inStock: true,  url: 'https://www.coles.com.au/product/monster-energy-ultra-peachy-keen-can-500ml-6413422' },
       { retailer: 'Costco Australia', pricePerCan: 1.72, packSize: 24, totalPrice: 41.28, inStock: false, url: 'https://www.costcobusinessdelivery.com/monster-energy-drink-zero-sugar-ultra-peachy-keen-16-fl-oz-24-ct.product.2001116814.html' },
-      { retailer: '7-Eleven',         pricePerCan: 5.99, packSize: 1,  totalPrice: 5.99,  inStock: true,  url: '#' },
+      { retailer: '7-Eleven',         pricePerCan: 5.99, packSize: 1,  totalPrice: 5.99,  inStock: true,  url: 'https://7eleven.tipple.com.au/product/monster-355ml-ultra-peachy-keen?packSize=1' },
     ],
   },
   {
@@ -284,8 +284,8 @@ export const drinks: EnergyDrink[] = [
     retailers: [
       { retailer: 'Woolworths',       pricePerCan: 5.50, packSize: 1,  totalPrice: 5.50,  inStock: true,  url: 'https://www.woolworths.com.au/shop/productdetails/6013090' },
       { retailer: 'Coles',            pricePerCan: 5.50, packSize: 1,  totalPrice: 5.50,  inStock: true,  url: 'https://www.coles.com.au/product/monster-energy-drink-ultra-ruby-red-500ml-9965141' },
-      { retailer: 'Costco Australia', pricePerCan: 1.72, packSize: 24, totalPrice: 41.28, inStock: false, url: '#' },
-      { retailer: '7-Eleven',         pricePerCan: 5.99, packSize: 1,  totalPrice: 5.99,  inStock: true,  url: '#' },
+      { retailer: 'Costco Australia', pricePerCan: 1.72, packSize: 24, totalPrice: 41.28, inStock: false, url: 'https://www.costcobusinessdelivery.com/monster-energy-drink%2C-zero-sugar%2C-variety-pack%2C-16-fl-oz%2C-24-ct.product.2001196824.html' },
+      { retailer: '7-Eleven',         pricePerCan: 5.99, packSize: 1,  totalPrice: 5.99,  inStock: true,  url: 'https://7eleven.tipple.com.au/product/monster-ultra-ruby-red-500ml?packSize=1' },
     ],
   },
   {
@@ -302,10 +302,10 @@ export const drinks: EnergyDrink[] = [
     accentColor: '#ff8fa3',
     image: 'https://productimages.coles.com.au/productimages/7/7717127.jpg',
     retailers: [
-      { retailer: 'Woolworths',       pricePerCan: 5.50, packSize: 1,  totalPrice: 5.50,  inStock: true,  url: '#' },
+      { retailer: 'Woolworths',       pricePerCan: 5.50, packSize: 1,  totalPrice: 5.50,  inStock: true,  url: 'https://www.woolworths.com.au/shop/productdetails/6007245/monster-energy-ultra-strawberry-dreams?srsltid=AfmBOooasAlZLYzFVO1wxmhof_ECEnfz5x--D88GK3Sj3C_1gFoK37-9' },
       { retailer: 'Coles',            pricePerCan: 5.50, packSize: 1,  totalPrice: 5.50,  inStock: true,  url: 'https://www.coles.com.au/product/monster-energy-drink-ultra-strawberry-can-500ml-7717127' },
       { retailer: 'Costco Australia', pricePerCan: 1.72, packSize: 24, totalPrice: 41.28, inStock: false, url: 'https://www.costcobusinessdelivery.com/monster-energy-drink-zero-sugar-ultra-strawberry-dreams-16-fl-oz-24-ct.product.2001147809.html' },
-      { retailer: '7-Eleven',         pricePerCan: 5.99, packSize: 1,  totalPrice: 5.99,  inStock: true,  url: '#' },
+      { retailer: '7-Eleven',         pricePerCan: 5.99, packSize: 1,  totalPrice: 5.99,  inStock: true,  url: 'https://7eleven.tipple.com.au/product/monster-strawberry-dream-500ml?packSize=1' },
     ],
   },
   {
@@ -322,10 +322,10 @@ export const drinks: EnergyDrink[] = [
     accentColor: '#ff69b4',
     image: 'https://productimages.coles.com.au/productimages/1/1308012.jpg',
     retailers: [
-      { retailer: 'Woolworths',       pricePerCan: 5.50, packSize: 1,  totalPrice: 5.50,  inStock: true,  url: '#' },
+      { retailer: 'Woolworths',       pricePerCan: 5.50, packSize: 1,  totalPrice: 5.50,  inStock: true,  url: 'https://www.woolworths.com.au/shop/productdetails/6040820/monster-ultra-vice-energy-drink?srsltid=AfmBOooqQIx1dIrbYKv3o8y3WbJDEd4AZfQM2PBSEDT0B5LZHbE1t01n' },
       { retailer: 'Coles',            pricePerCan: 5.50, packSize: 1,  totalPrice: 5.50,  inStock: true,  url: 'https://www.coles.com.au/product/monster-energy-drink-ultra-vice-500ml-1308012' },
-      { retailer: 'Costco Australia', pricePerCan: 1.72, packSize: 24, totalPrice: 41.28, inStock: false, url: '#' },
-      { retailer: '7-Eleven',         pricePerCan: 5.99, packSize: 1,  totalPrice: 5.99,  inStock: true,  url: '#' },
+      { retailer: 'Costco Australia', pricePerCan: 1.72, packSize: 24, totalPrice: 41.28, inStock: false, url: 'https://www.costcobusinessdelivery.com/monster-energy-drink%2C-zero-sugar%2C-variety-pack%2C-16-fl-oz%2C-24-ct.product.2001196824.html' },
+      { retailer: '7-Eleven',         pricePerCan: 5.99, packSize: 1,  totalPrice: 5.99,  inStock: true,  url: 'https://7eleven.tipple.com.au/product/monster-ultra-vice-500ml?packSize=1' },
     ],
   },
   {
@@ -344,8 +344,8 @@ export const drinks: EnergyDrink[] = [
     retailers: [
       { retailer: 'Woolworths',       pricePerCan: 5.50, packSize: 1,  totalPrice: 5.50,  inStock: true,  url: 'https://www.woolworths.com.au/shop/productdetails/919631' },
       { retailer: 'Coles',            pricePerCan: 5.50, packSize: 1,  totalPrice: 5.50,  inStock: true,  url: 'https://www.coles.com.au/product/monster-energy-drink-ultra-violet-can-500ml-8593020' },
-      { retailer: 'Costco Australia', pricePerCan: 1.72, packSize: 24, totalPrice: 41.28, inStock: true,  url: '#' },
-      { retailer: '7-Eleven',         pricePerCan: 5.99, packSize: 1,  totalPrice: 5.99,  inStock: true,  url: '#' },
+      { retailer: 'Costco Australia', pricePerCan: 1.72, packSize: 24, totalPrice: 41.28, inStock: true,  url: 'https://www.costcobusinesscentre.ca/monster-ultra-violet-energy-drink%2C-12-×-473-ml.product.100336979.html' },
+      { retailer: '7-Eleven',         pricePerCan: 5.99, packSize: 1,  totalPrice: 5.99,  inStock: true,  url: 'https://7eleven.tipple.com.au/product/monster-ultra-violet-500ml?packSize=1' },
     ],
   },
   {
@@ -364,8 +364,8 @@ export const drinks: EnergyDrink[] = [
     retailers: [
       { retailer: 'Woolworths',       pricePerCan: 5.50, packSize: 1,  totalPrice: 5.50,  inStock: true,  url: 'https://www.woolworths.com.au/shop/productdetails/489787' },
       { retailer: 'Coles',            pricePerCan: 5.50, packSize: 1,  totalPrice: 5.50,  inStock: true,  url: 'https://www.coles.com.au/product/monster-energy-ultra-can-500ml-2787147' },
-      { retailer: 'Costco Australia', pricePerCan: 1.72, packSize: 24, totalPrice: 41.28, inStock: true,  url: '#' },
-      { retailer: '7-Eleven',         pricePerCan: 5.99, packSize: 1,  totalPrice: 5.99,  inStock: true,  url: '#' },
+      { retailer: 'Costco Australia', pricePerCan: 1.72, packSize: 24, totalPrice: 41.28, inStock: true,  url: 'https://www.costco.com.au/Business-Delivery/Beverages/Energy-Drinks/Monster-Energy-Zero-Ultra-24-x-500ml/p/102469_BD' },
+      { retailer: '7-Eleven',         pricePerCan: 5.99, packSize: 1,  totalPrice: 5.99,  inStock: true,  url: 'https://7eleven.tipple.com.au/product/monster-zero-ultra-white-500ml?packSize=1' },
     ],
   },
   {
@@ -383,9 +383,9 @@ export const drinks: EnergyDrink[] = [
     image: 'https://cdn0.woolworths.media/content/wowproductimages/large/6057776.jpg',
     retailers: [
       { retailer: 'Woolworths',       pricePerCan: 5.50, packSize: 1,  totalPrice: 5.50,  inStock: true,  url: 'https://www.woolworths.com.au/shop/productdetails/6057776' },
-      { retailer: 'Coles',            pricePerCan: 5.50, packSize: 1,  totalPrice: 5.50,  inStock: false, url: '#' },
-      { retailer: 'Costco Australia', pricePerCan: 1.72, packSize: 24, totalPrice: 41.28, inStock: false, url: '#' },
-      { retailer: '7-Eleven',         pricePerCan: 5.99, packSize: 1,  totalPrice: 5.99,  inStock: true,  url: '#' },
+      { retailer: 'Coles',            pricePerCan: 5.50, packSize: 1,  totalPrice: 5.50,  inStock: false, url: 'https://www.coles.com.au/product/monster-energy-drink-can-lando-norris-500ml-1641011' },
+      { retailer: 'Costco Australia', pricePerCan: 1.72, packSize: 24, totalPrice: 41.28, inStock: false, url: 'https://www.costco.co.uk/Grocery-Household/Water-Soft-Drinks/Monster-Lando-Norris-Zero-Sugar-PMP-165-12-x-500ml/p/580016?srsltid=AfmBOor3kqJB30_BjmnqL3vH6iAtNzauIIZVr8Ip8SQ7TrArWV8P7a0T' },
+      { retailer: '7-Eleven',         pricePerCan: 5.99, packSize: 1,  totalPrice: 5.99,  inStock: true,  url: 'https://7eleven.tipple.com.au/product/monster-lando-norris-500ml?packSize=1' },
     ],
   },
 ];
