@@ -3,16 +3,19 @@
   --bg-secondary: #111111;
   --bg-card: #0f0f0f;
   --fg: #e8e8e8;
-  --fg-dim: rgba(232, 232, 232, 0.5);
-  --fg-dimmer: rgba(232, 232, 232, 0.2);
+  --fg-dim: rgba(232, 232, 232, 0.7);
+  --fg-dimmer: rgba(232, 232, 232, 0.4);
   --accent: #39d353;
+  --accent-r: 57;
+  --accent-g: 211;
+  --accent-b: 83;
   --accent-dim: rgba(57, 211, 83, 0.15);
   --accent-glow: rgba(57, 211, 83, 0.3);
   --danger: #ff4444;
   --border: rgba(232, 232, 232, 0.08);
   --border-accent: rgba(57, 211, 83, 0.2);
-  --font-display: var(--font-grotesk), 'Arial Black', sans-serif;
-  --font-mono: var(--font-mono), 'Courier New', monospace;
+  --font-display: var(--font-y2k), var(--font-grotesk), 'Arial Black', sans-serif;
+  --font-hyperion: var(--font-hyperion), 'Courier New', monospace;
   --radius: 4px;
 }
 
@@ -20,6 +23,13 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+/* Hide system cursor on pointer devices - CustomCursor component replaces it */
+@media (pointer: fine) {
+  *, *::before, *::after {
+    cursor: none !important;
+  }
 }
 
 html {
@@ -32,7 +42,7 @@ html {
 
 body {
   background-color: var(--bg);
-  font-family: var(--font-mono);
+  font-family: var(--font-hyperion);
   overflow-x: hidden;
 }
 
@@ -67,6 +77,116 @@ button {
   border: none;
   background: none;
   font-family: inherit;
+}
+
+/* Typewriter reveal animation */
+@keyframes typewriter {
+  from { clip-path: inset(0 100% 0 0); }
+  to   { clip-path: inset(0 0% 0 0); }
+}
+
+/* Grid wave sweep (used by hero + subpage headers) */
+@keyframes gridWave {
+  0%   { transform: translateY(-33%); }
+  100% { transform: translateY(33%); }
+}
+
+/* Title entrance + glitch (used by hero + subpage titles) */
+@keyframes titleFadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pageTitleGlitch {
+  0%, 88%, 100% {
+    transform: translateX(0) skewX(0deg);
+    filter: none;
+  }
+  89% {
+    transform: translateX(-3px) skewX(-1.5deg);
+    filter: brightness(1.4);
+    text-shadow: -3px 0 var(--accent-glow), 3px 0 var(--accent), 0 0 30px var(--accent-glow);
+  }
+  91% {
+    transform: translateX(3px) skewX(1.5deg);
+    filter: brightness(1.2);
+    text-shadow: 3px 0 var(--accent-glow), -3px 0 var(--accent-dim), 0 0 30px var(--accent-dim);
+  }
+  93% {
+    transform: translateX(-1px) skewX(-0.5deg);
+    filter: brightness(1.1);
+  }
+  95% {
+    transform: translateX(0) skewX(0deg);
+    filter: none;
+  }
+}
+
+@keyframes accentGlitch {
+  0%, 88%, 100% {
+    transform: translateX(0) skewX(0deg);
+    filter: none;
+    text-shadow: 0 0 20px var(--accent-glow), 0 0 60px var(--accent-dim), 0 0 100px var(--accent-dim);
+  }
+  89% {
+    transform: translateX(-3px) skewX(-1.5deg);
+    filter: brightness(1.6);
+    text-shadow: -3px 0 rgba(0, 255, 200, 0.8), 3px 0 var(--accent-glow), 0 0 40px var(--accent-glow);
+  }
+  91% {
+    transform: translateX(4px) skewX(2deg);
+    filter: brightness(1.3);
+    text-shadow: 3px 0 rgba(0, 200, 255, 0.7), -2px 0 var(--accent-glow), 0 0 40px var(--accent-dim);
+  }
+  93% {
+    transform: translateX(-1px) skewX(0deg);
+    filter: brightness(1.1);
+  }
+  95% {
+    transform: translateX(0);
+    filter: none;
+    text-shadow: 0 0 20px var(--accent-glow), 0 0 60px var(--accent-dim), 0 0 100px var(--accent-dim);
+  }
+}
+
+/* MonsterCan border text animations */
+@keyframes mcBorderRight { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+@keyframes mcBorderLeft  { from { transform: translateX(-50%); } to { transform: translateX(0); } }
+@keyframes mcBorderUp    { from { transform: translateY(0); } to { transform: translateY(-50%); } }
+@keyframes mcBorderDown  { from { transform: translateY(-50%); } to { transform: translateY(0); } }
+
+/* Full-page grid background */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(var(--accent-r), var(--accent-g), var(--accent-b), 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(var(--accent-r), var(--accent-g), var(--accent-b), 0.04) 1px, transparent 1px);
+  background-size: 60px 60px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Full-page wave sweep */
+html::before {
+  content: '';
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: -100%;
+  height: 300%;
+  background: linear-gradient(
+    180deg,
+    transparent 35%,
+    rgba(var(--accent-r), var(--accent-g), var(--accent-b), 0.04) 44%,
+    rgba(var(--accent-r), var(--accent-g), var(--accent-b), 0.13) 50%,
+    rgba(var(--accent-r), var(--accent-g), var(--accent-b), 0.04) 56%,
+    transparent 65%
+  );
+  animation: gridWave 9s ease-in-out infinite;
+  pointer-events: none;
+  z-index: 0;
 }
 
 /* Scanline overlay */

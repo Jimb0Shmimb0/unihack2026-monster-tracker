@@ -2,13 +2,14 @@
   border-top: 1px solid var(--border);
   margin-top: 4rem;
   background: var(--bg-secondary);
+  overflow: hidden;
 }
 
 .footerInner {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 3rem;
-  padding: 3rem 2rem;
+  padding: 1.6rem 2rem;
   max-width: 1400px;
   margin: 0 auto;
 }
@@ -16,8 +17,8 @@
 @media (max-width: 768px) {
   .footerInner {
     grid-template-columns: 1fr;
-    gap: 2rem;
-    padding: 2rem 1.25rem;
+    gap: 1.5rem;
+    padding: 1.25rem 1.25rem;
   }
 }
 
@@ -27,23 +28,30 @@
   gap: 0.5rem;
 }
 
-.footerLogo {
-  font-family: var(--font-display);
-  font-size: 1.1rem;
-  font-weight: 700;
-  letter-spacing: 0.1em;
-  color: var(--accent);
+.footerLogoWrap {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
 }
 
-.footerSub {
-  font-size: 0.58rem;
-  letter-spacing: 0.14em;
+.footerLogoImg {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+  filter: invert(1);
+  mix-blend-mode: screen;
+}
+
+.footerLogo {
+  font-family: var(--font-pickyside), sans-serif;
+  font-size: 1.6rem;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--fg-dimmer);
+  color: var(--fg);
 }
 
 .footerDisclaimer {
-  font-size: 0.58rem;
+  font-size: 0.68rem;
   line-height: 1.7;
   color: var(--fg-dimmer);
   max-width: 380px;
@@ -54,6 +62,7 @@
   display: flex;
   gap: 3rem;
   flex-wrap: wrap;
+  position: relative;
 }
 
 .footerCol {
@@ -63,7 +72,7 @@
 }
 
 .footerColTitle {
-  font-size: 0.5rem;
+  font-size: 0.62rem;
   letter-spacing: 0.2em;
   text-transform: uppercase;
   color: var(--fg-dimmer);
@@ -71,24 +80,29 @@
 }
 
 .footerCol a {
-  font-size: 0.65rem;
+  font-size: 0.75rem;
   color: var(--fg-dim);
   text-decoration: none;
   letter-spacing: 0.04em;
-  transition: color 0.2s ease;
+  transition: color 0.2s ease, text-shadow 0.2s ease;
 }
 
 .footerCol a:hover {
   color: var(--accent);
+  text-shadow:
+    0 0 6px var(--accent),
+    0 0 20px var(--accent-glow),
+    0 0 40px var(--accent-glow),
+    0 0 80px var(--accent-dim);
 }
 
 .footerBottom {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1.25rem 2rem;
+  padding: 0.7rem 2rem;
   border-top: 1px solid var(--border);
-  font-size: 0.55rem;
+  font-size: 0.65rem;
   letter-spacing: 0.1em;
   color: var(--fg-dimmer);
   flex-wrap: wrap;
@@ -114,4 +128,104 @@
 @keyframes pulse {
   0%, 100% { opacity: 1; }
   50% { opacity: 0.3; }
+}
+
+@keyframes stripScroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+.footerTopStrip {
+  width: 100%;
+  height: 22px;
+  border-bottom: 1px solid var(--border-accent);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.7);
+}
+
+.footerStripText {
+  display: inline-block;
+  white-space: nowrap;
+  font-family: var(--font-y2k), monospace;
+  font-size: 0.42rem;
+  letter-spacing: 0.12em;
+  color: var(--accent);
+  animation: stripScroll 50s linear infinite;
+}
+
+.footerLogoStack {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.footerJaSub {
+  font-family: var(--font-mono), monospace;
+  font-size: 0.52rem;
+  letter-spacing: 0.18em;
+  color: var(--fg-dimmer);
+}
+
+/* Asset spritesheet - same technique as about page */
+.assetWrap {
+  position: relative;
+  pointer-events: none;
+  isolation: isolate;
+  mix-blend-mode: screen;
+  flex-shrink: 0;
+}
+
+.assetSpriteAccent {
+  background-image: url('/Whisk_8b86b01356afac09dfd4d53affd93988dr.jpeg');
+  background-size: 1408px 768px;
+  background-repeat: no-repeat;
+  pointer-events: none;
+}
+
+.assetSpriteGrey {
+  background-image: url('/Whisk_8b86b01356afac09dfd4d53affd93988dr.jpeg');
+  background-size: 1408px 768px;
+  background-repeat: no-repeat;
+  pointer-events: none;
+  mix-blend-mode: screen;
+  flex-shrink: 0;
+}
+
+.assetAccentTint {
+  position: absolute;
+  inset: 0;
+  background: rgba(var(--accent-r), var(--accent-g), var(--accent-b), 1);
+  mix-blend-mode: multiply;
+  pointer-events: none;
+}
+
+/* Barcode strip below disclaimer (left area ~x50 y120 w300 h68) */
+.cropBarcodeFooter {
+  background-position: -50px -120px;
+  width: 160px;
+  height: 44px;
+  opacity: 0.55;
+  margin-top: 0.5rem;
+}
+
+/* EM200 tag in footer bottom right (~x815 y5 w230 h58) */
+.cropEM200Footer {
+  background-position: -815px -5px;
+  width: 230px;
+  height: 58px;
+  opacity: 0.3;
+}
+
+/* Large kanji watermark - big character bottom-left of sheet (~x55 y425 w185 h210) */
+.cropKanjiWatermark {
+  background-position: -55px -425px;
+  width: 185px;
+  height: 210px;
+  opacity: 0.08;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
 }
