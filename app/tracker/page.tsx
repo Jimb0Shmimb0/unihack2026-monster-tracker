@@ -19,21 +19,23 @@ interface CartItem extends Drink {
 type Cart = Record<number, number>;
 
 const drinks: Drink[] = [
-  { id: 1,  name: "Monster Original",         flavour: "Green",              caffeine: 160, color: "#39d353" },
-  { id: 2,  name: "Monster Ultra White",       flavour: "Ultra White",        caffeine: 150, color: "#e8e8e8" },
-  { id: 3,  name: "Monster Ultra Paradise",    flavour: "Ultra Paradise",     caffeine: 150, color: "#00e5a0" },
-  { id: 4,  name: "Monster Ultra Sunrise",     flavour: "Ultra Sunrise",      caffeine: 150, color: "#ff8c00" },
-  { id: 5,  name: "Monster Ultra Fiesta",      flavour: "Ultra Fiesta Mango", caffeine: 150, color: "#ffe033" },
-  { id: 6,  name: "Monster Ultra Watermelon",  flavour: "Ultra Watermelon",   caffeine: 150, color: "#ff4d6d" },
-  { id: 7,  name: "Monster Juiced",            flavour: "Mango Loco",         caffeine: 160, color: "#ff6b1a" },
-  { id: 8,  name: "Monster Pipeline Punch",    flavour: "Pipeline Punch",     caffeine: 160, color: "#ff9933" },
-  { id: 9,  name: "Monster Assault",           flavour: "Assault",            caffeine: 160, color: "#cc0000" },
-  { id: 10, name: "Monster Lo-Carb",           flavour: "Lo-Carb Blue",       caffeine: 140, color: "#4488ff" },
-  { id: 11, name: "Monster Hydro",             flavour: "Blue Ice",           caffeine: 125, color: "#00aaff" },
-  { id: 12, name: "Monster Hydro",             flavour: "Manic Melon",        caffeine: 125, color: "#ff6b9d" },
-  { id: 13, name: "Monster Rehab",             flavour: "Lemonade + Tea",     caffeine: 160, color: "#e8d44d" },
-  { id: 14, name: "Monster Rehab",             flavour: "Peach + Tea",        caffeine: 160, color: "#ffb347" },
-  { id: 15, name: "Monster Java",              flavour: "Mean Bean",          caffeine: 188, color: "#8B4513" },
+  { id: 1,  name: "Monster Original",                flavour: "Green",                  caffeine: 160, color: "#39d353" },
+  { id: 20, name: "Monster Aussie Lemonade",          flavour: "Aussie Style Lemonade",   caffeine: 160, color: "#b8e04a" },
+  { id: 16, name: "Monster Java Loca Mocha",          flavour: "Loca Mocha",              caffeine: 188, color: "#3a1a0a" },
+  { id: 15, name: "Monster Java Mean Bean",           flavour: "Mean Bean",               caffeine: 188, color: "#8B4513" },
+  { id: 7,  name: "Monster Juiced",                  flavour: "Mango Loco",              caffeine: 160, color: "#ff6b1a" },
+  { id: 21, name: "Monster Juiced Rio Punch",         flavour: "Rio Punch",               caffeine: 160, color: "#ff3030" },
+  { id: 8,  name: "Monster Pipeline Punch",           flavour: "Pipeline Punch",          caffeine: 160, color: "#ff9933" },
+  { id: 5,  name: "Monster Ultra Fiesta",             flavour: "Ultra Fiesta Mango",      caffeine: 150, color: "#ffe033" },
+  { id: 17, name: "Monster Ultra Gold",               flavour: "Ultra Gold",              caffeine: 150, color: "#ffd700" },
+  { id: 25, name: "Monster Ultra Peachy Keen",        flavour: "Ultra Peachy Keen",       caffeine: 150, color: "#ffb347" },
+  { id: 3,  name: "Monster Ultra Paradise",           flavour: "Ultra Paradise",          caffeine: 150, color: "#00e5a0" },
+  { id: 19, name: "Monster Ultra Ruby Red",           flavour: "Ultra Ruby Red",          caffeine: 150, color: "#dc143c" },
+  { id: 24, name: "Monster Ultra Strawberry Dreams",  flavour: "Ultra Strawberry Dreams", caffeine: 150, color: "#ff8fa3" },
+  { id: 23, name: "Monster Ultra Vice Guava",         flavour: "Ultra Vice Guava",        caffeine: 150, color: "#ff69b4" },
+  { id: 18, name: "Monster Ultra Violet",             flavour: "Ultra Violet",            caffeine: 150, color: "#8b5cf6" },
+  { id: 2,  name: "Monster Ultra White",              flavour: "Ultra White",             caffeine: 150, color: "#e8e8e8" },
+  { id: 22, name: "Monster x Lando Norris",           flavour: "Limited Edition",         caffeine: 150, color: "#ff6900" },
 ];
 
 const DAILY_LIMIT = 400;
