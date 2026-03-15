@@ -16,7 +16,7 @@ const spaceMono = Space_Mono({
 
 export const metadata: Metadata = {
   title: 'VOLT — Energy Drink Price Tracker',
-  description: 'Track Monster Energy drink prices in real time across Amazon, Walmart, Target, 7-Eleven, Costco and more. Compare by caffeine content, price per serving, and size.',
+  description: 'Track Monster Energy drink prices in real time across 7-Eleven, Woolworths, Coles, Costco and more. Compare by caffeine content, price per serving, and size.',
 }
 
 export default function RootLayout({

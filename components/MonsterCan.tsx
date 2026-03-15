@@ -31,8 +31,21 @@ function Can() {
       }
     })
 
-    // Measure the can to size the grid cylinder
-    const box = new THREE.Box3().setFromObject(scene)
+    // Measure the can in group-local space to avoid double-applying world transforms.
+    // Box3.setFromObject uses world space, so we invert the scene's world matrix to
+    // get coordinates relative to the group instead.
+    const sceneWorldInv = new THREE.Matrix4().copy(scene.matrixWorld).invert()
+    const box = new THREE.Box3()
+    scene.traverse((obj) => {
+      if ((obj as THREE.Mesh).isMesh) {
+        const mesh = obj as THREE.Mesh
+        if (!mesh.geometry.boundingBox) mesh.geometry.computeBoundingBox()
+        const meshBox = mesh.geometry.boundingBox!.clone()
+        const localToScene = new THREE.Matrix4().multiplyMatrices(sceneWorldInv, mesh.matrixWorld)
+        meshBox.applyMatrix4(localToScene)
+        box.union(meshBox)
+      }
+    })
     const size = box.getSize(new THREE.Vector3())
     const center = box.getCenter(new THREE.Vector3())
 

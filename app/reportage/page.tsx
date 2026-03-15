@@ -10,7 +10,7 @@ export const metadata = {
 export default function DealsPage() {
   const bestDeals = drinks
     .map(drink => {
-      const inStock = drink.retailers.filter(r => r.inStock)
+      const inStock = drink.retailers.filter(r => r.inStock && r.retailer !== 'Costco Australia')
       if (!inStock.length) return null
       const best = inStock.reduce((a, b) => a.pricePerCan < b.pricePerCan ? a : b)
       return { drink, best }

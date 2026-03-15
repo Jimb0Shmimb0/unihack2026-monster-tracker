@@ -15,7 +15,7 @@ const stats = [
 ]
 
 function getBestDeal(drink: typeof drinks[0]) {
-  const inStock = drink.retailers.filter(r => r.inStock)
+  const inStock = drink.retailers.filter(r => r.inStock && r.retailer !== 'Costco Australia')
   if (!inStock.length) return null
   return inStock.reduce((a, b) => a.pricePerCan < b.pricePerCan ? a : b)
 }
@@ -50,7 +50,7 @@ export default function Hero() {
           </h1>
 
           <p className={styles.heroSub}>
-            Track Monster Energy across Amazon, Walmart, Target, Costco and more.
+            Track Monster Energy across 7-Eleven, Woolworths, Coles and more.
             Compare caffeine content, serving size, and cost per can — instantly.
           </p>
 

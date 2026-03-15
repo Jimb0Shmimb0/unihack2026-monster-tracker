@@ -30,12 +30,10 @@ export default function Footer() {
           </div>
           <div className={styles.footerCol}>
             <span className={styles.footerColTitle}>Retailers</span>
-            <a href="#">Amazon</a>
-            <a href="#">Walmart</a>
-            <a href="#">Target</a>
-            <a href="#">Costco</a>
             <a href="#">7-Eleven</a>
-            <a href="#">GNC</a>
+            <a href="#">Woolworths</a>
+            <a href="#">Coles</a>
+            <a href="#">Costco</a>
           </div>
         </div>
       </div>

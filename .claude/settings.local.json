@@ -1,0 +1,24 @@
+{
+  "permissions": {
+    "allow": [
+      "WebSearch",
+      "WebFetch(domain:www.monsterenergy.com)",
+      "WebFetch(domain:www.target.com)",
+      "WebFetch(domain:www.walmart.com)",
+      "WebFetch(domain:www.amazon.com)",
+      "WebFetch(domain:www.7eleven.com.au)",
+      "WebFetch(domain:www.woolworths.com.au)",
+      "WebFetch(domain:assets.woolworths.com.au)",
+      "WebFetch(domain:www.coles.com.au)",
+      "WebFetch(domain:productimages.coles.com.au)",
+      "WebFetch(domain:cdn0.woolworths.media)",
+      "WebFetch(domain:kellysdistributors.com.au)",
+      "WebFetch(domain:brucesuper.com.au)",
+      "WebFetch(domain:www.britsuperstore.com)",
+      "WebFetch(domain:snackje.com)",
+      "WebFetch(domain:www.bestwaywholesale.co.uk)",
+      "WebFetch(domain:www-snackje-com.myshopify.com)",
+      "Bash(curl:*)"
+    ]
+  }
+}

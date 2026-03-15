@@ -20,8 +20,8 @@ export default function AboutPage() {
           <div className={styles.bio}>
             <p>
               VOLT is a real-time energy drink price comparison platform, focused on the Monster Energy
-              product line. We track prices across major retailers including Amazon, Walmart, Target,
-              Costco, 7-Eleven, and GNC — so you always know where to get the best deal.
+              product line. We track prices across major retailers including 7-Eleven, Woolworths, Coles,
+              and Costco — so you always know where to get the best deal.
             </p>
             <p>
               Our platform updates pricing data continuously, compares caffeine content, calories, and
@@ -52,7 +52,7 @@ export default function AboutPage() {
         <div className={styles.clients}>
           <h2>Retailers Tracked</h2>
           <div className={styles.clientGrid}>
-            {['Amazon', 'Walmart', 'Target', 'Costco', '7-Eleven', 'GNC'].map(c => (
+            {['7-Eleven', 'Woolworths', 'Coles', 'Costco'].map(c => (
               <span key={c} className={styles.client}>{c}</span>
             ))}
           </div>

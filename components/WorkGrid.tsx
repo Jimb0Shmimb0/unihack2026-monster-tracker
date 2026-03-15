@@ -200,14 +200,16 @@ export default function WorkGrid() {
                     const isLive = livePrice != null
                     const inStock = rp.inStock || isLive
                     const isBestRetailer = best?.retailer === retailer
+                    const isCostco = retailer === 'Costco Australia'
                     return (
                       <span
                         key={retailer}
-                        className={`${styles.priceCell} ${!inStock ? styles.priceCellOos : ''} ${isBestRetailer ? styles.priceCellBest : ''}`}
+                        className={`${styles.priceCell} ${!inStock ? styles.priceCellOos : ''} ${isBestRetailer ? styles.priceCellBest : ''} ${isCostco ? styles.priceCellCostco : ''}`}
                       >
                         {inStock ? (
                           <>
                             <span className={styles.priceValue}>${displayPrice.toFixed(2)}</span>
+                            {isCostco && <span className={styles.bulkTag}>bulk</span>}
                             {isLive && <span className={styles.liveDot} title="Live price" />}
                           </>
                         ) : (
@@ -279,14 +281,15 @@ export default function WorkGrid() {
                           .filter(r => r.inStock)
                           .sort((a, b) => a.pricePerCan - b.pricePerCan)
                           .map(rp => (
-                            <div key={rp.retailer} className={`${styles.retailerRow} ${best?.retailer === rp.retailer ? styles.retailerRowBest : ''}`}>
+                            <div key={rp.retailer} className={`${styles.retailerRow} ${best?.retailer === rp.retailer ? styles.retailerRowBest : ''} ${rp.retailer === 'Costco Australia' ? styles.retailerRowCostco : ''}`}>
                               <span className={styles.retailerRowName}>
                                 {best?.retailer === rp.retailer && <span className={styles.bestTag}>Best</span>}
+                                {rp.retailer === 'Costco Australia' && <span className={styles.bulkTagDetail}>Bulk</span>}
                                 {rp.retailer}
                               </span>
                               <span className={styles.retailerRowPack}>Pack of {rp.packSize}</span>
                               <span className={styles.retailerRowTotal}>${rp.totalPrice.toFixed(2)} total</span>
-                              <span className={`${styles.retailerRowPrice} ${best?.retailer === rp.retailer ? styles.retailerRowPriceBest : ''}`}>
+                              <span className={`${styles.retailerRowPrice} ${rp.retailer === 'Costco Australia' ? styles.retailerRowPriceCostco : ''} ${best?.retailer === rp.retailer ? styles.retailerRowPriceBest : ''}`}>
                                 ${rp.pricePerCan.toFixed(2)}/can
                               </span>
                               <a href={rp.url} className={styles.buyBtn}>Buy →</a>

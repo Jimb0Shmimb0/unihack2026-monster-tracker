@@ -5,9 +5,9 @@ import styles from './Preloader.module.css'
 
 const messages = [
   'Connecting to retailers...',
-  'Fetching Amazon prices...',
-  'Fetching Walmart prices...',
-  'Fetching Costco prices...',
+  'Fetching 7-Eleven prices...',
+  'Fetching Woolworths prices...',
+  'Fetching Coles prices...',
   'Comparing prices...',
   'Ready.',
 ]

@@ -327,6 +327,18 @@
   color: var(--accent);
 }
 
+.priceCellCostco .priceValue {
+  color: #4fa3e0;
+}
+
+.bulkTag {
+  font-size: 0.42rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #4fa3e0;
+  font-weight: 600;
+}
+
 .priceCellBestSummary {
   width: 90px;
   border-left: 1px solid var(--border-accent);
@@ -500,6 +512,26 @@
 
 .retailerRowPriceBest {
   color: var(--accent);
+}
+
+.retailerRowCostco .retailerRowName {
+  color: #4fa3e0;
+}
+
+.retailerRowPriceCostco {
+  color: #4fa3e0;
+}
+
+.bulkTagDetail {
+  font-size: 0.5rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #4fa3e0;
+  font-weight: 700;
+  border: 1px solid #4fa3e040;
+  border-radius: 3px;
+  padding: 0 4px;
+  margin-right: 4px;
 }
 
 .oosLabel {
